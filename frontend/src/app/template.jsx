@@ -7,7 +7,6 @@ const Template = ({ children }) => {
 
     return (
         <SnackbarProvider anchorOrigin={{ vertical: 'top', horizontal: 'center' }} autoHideDuration={1000}>
-            <Navbar />
             {children}
         </SnackbarProvider>
     )

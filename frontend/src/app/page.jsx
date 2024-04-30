@@ -1,11 +1,11 @@
 'use client';
-import React from 'react'
-import "./globals.css"
-import "./tailwind.config"
+import React from 'react';
+import Navbar from './Navbar';
 
 const Home = () => {
   return (
     <div>
+      <Navbar />
       <section className="relative overflow-hidden bg-gradient-to-b from-blue-50 via-transparent to-transparent pb-12 pt-20 sm:pb-16 sm:pt-32 lg:pb-24 xl:pb-32 xl:pt-40">
         <div className="relative z-10">
           <div className="absolute inset-x-0 top-1/2 -z-10 flex -translate-y-1/2 justify-center overflow-hidden [mask-image:radial-gradient(50%_45%_at_50%_55%,white,transparent)]">

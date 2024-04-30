@@ -2,7 +2,7 @@ import Link from "next/link";
 import React, { useState } from "react";
 
 
-const navbar = () => {
+const Navbar = () => {
   return (
     <>
       {/* ========== HEADER ========== */}
@@ -204,8 +204,7 @@ const navbar = () => {
       </header>
       {/* ========== END HEADER ========== */}
     </>
-
   )
 }
 
-export default navbar;
+export default Navbar;

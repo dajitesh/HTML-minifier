@@ -1,5 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
+  darkMode: 'selector',
   content: [
     './node_modules/preline/preline.js',
     "./app/**/*.{js,ts,jsx,tsx,mdx}",

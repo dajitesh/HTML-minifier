@@ -10,8 +10,10 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "clean-css": "^5.3.3",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "uglify-js": "^3.17.4"
   },
   "devDependencies": {
     "@types/react": "^18.2.66",

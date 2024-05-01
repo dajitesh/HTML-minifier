@@ -44,7 +44,7 @@ function readableBytes(bytes) {
 }
 
 
-const ImageCompressor = () => {
+const ImageCompressor = ({src, alt, style}) => {
 
     const imgRef = useRef(null);
     const imgLoaded = useRef(false);

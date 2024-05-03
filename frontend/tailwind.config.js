@@ -9,12 +9,14 @@ module.exports = {
  
     // Or if using `src` directory:
     "./src/**/*.{js,ts,jsx,tsx,mdx}",
+    "./node_modules/flowbite-react/lib/**/*.js",
   ],
   theme: {
     extend: {},
   },
   plugins: [
     require('preline/plugin'),
+    require("flowbite/plugin")
   ],
 }
 

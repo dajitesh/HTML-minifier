@@ -1,11 +1,33 @@
 'use client';
 import { useFormik } from 'formik';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import { enqueueSnackbar } from 'notistack';
 import React from 'react'
+import * as Yup from 'yup'
 // import './signupmodule.css'
 
+const SignupSchema = Yup.object().shape({
+  name: Yup.string()
+    .min(2, 'Too Short!')
+    .max(10, 'Too Long!')
+    .required('Required'),
+
+  email: Yup.string().email('Invalid email').required('Required'),
+  password: Yup
+    .string()
+    .required('Please Enter your password'),
+    // .matches(
+    //   /^(?=.[a-z])(?=.[A-Z])(?=.[0-9])(?=.[!@#\$%\^&\*])(?=.{8,})/,
+    //   "Must Contain 8 Characters, One Uppercase, One Lowercase, One Number and One Special Case Character"
+    // ),
+  cPassword: Yup.string()
+    .oneOf([Yup.ref('password'), null], 'Passwords must match')
+});
+
 const Signup = () => {
+
+  const router = useRouter();
 
   const signupForm = useFormik({
     initialValues: {
@@ -30,6 +52,7 @@ const Signup = () => {
           console.log(response.status);
           if (response.status === 200) {
             enqueueSnackbar('User added successfully', { variant: 'success' })
+            router.push("/login")
 
           } else {
             enqueueSnackbar('Something went wrong', { variant: 'error' })
@@ -39,242 +62,168 @@ const Signup = () => {
           enqueueSnackbar('Something went wrong', { variant: 'error' });
         });
 
-    }
+    },
+    validationSchema: SignupSchema
   })
   return (
-    <div className='w-full md:w-1/2 xl:w-1/4 mx-auto'>
-      <div className="mt-7 bg-white border border-gray-200 rounded-xl shadow-sm dark:bg-gray-800 dark:border-gray-700">
-        <div className="p-4 sm:p-7">
-          <div className="text-center">
-            <h1 className="block text-2xl font-bold text-gray-800 dark:text-white">
-              Sign up
-            </h1>
-            <p className="mt-2 text-sm text-gray-600 dark:text-gray-400">
-              Already have an account?
-              <a
-                className="text-blue-600 decoration-2 hover:underline font-medium"
-                href="/login"
-              >
-                Sign in here
-              </a>
-            </p>
-          </div>
-          <div className="mt-5">
-            <button
-              type="button"
-              className="w-full py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-white dark:hover:bg-gray-800"
-            >
-              <svg
-                className="w-4 h-auto"
-                width={46}
-                height={47}
-                viewBox="0 0 46 47"
-                fill="none"
-              >
-                <path
-                  d="M46 24.0287C46 22.09 45.8533 20.68 45.5013 19.2112H23.4694V27.9356H36.4069C36.1429 30.1094 34.7347 33.37 31.5957 35.5731L31.5663 35.8669L38.5191 41.2719L38.9885 41.3306C43.4477 37.2181 46 31.1669 46 24.0287Z"
-                  fill="#4285F4"
-                />
-                <path
-                  d="M23.4694 47C29.8061 47 35.1161 44.9144 39.0179 41.3012L31.625 35.5437C29.6301 36.9244 26.9898 37.8937 23.4987 37.8937C17.2793 37.8937 12.0281 33.7812 10.1505 28.1412L9.88649 28.1706L2.61097 33.7812L2.52296 34.0456C6.36608 41.7125 14.287 47 23.4694 47Z"
-                  fill="#34A853"
-                />
-                <path
-                  d="M10.1212 28.1413C9.62245 26.6725 9.32908 25.1156 9.32908 23.5C9.32908 21.8844 9.62245 20.3275 10.0918 18.8588V18.5356L2.75765 12.8369L2.52296 12.9544C0.909439 16.1269 0 19.7106 0 23.5C0 27.2894 0.909439 30.8731 2.49362 34.0456L10.1212 28.1413Z"
-                  fill="#FBBC05"
-                />
-                <path
-                  d="M23.4694 9.07688C27.8699 9.07688 30.8622 10.9863 32.5344 12.5725L39.1645 6.11C35.0867 2.32063 29.8061 0 23.4694 0C14.287 0 6.36607 5.2875 2.49362 12.9544L10.0918 18.8588C11.9987 13.1894 17.25 9.07688 23.4694 9.07688Z"
-                  fill="#EB4335"
-                />
-              </svg>
-              Sign up with Google
-            </button>
-            <div className="py-3 flex items-center text-xs text-gray-400 uppercase before:flex-1 before:border-t before:border-gray-200 before:me-6 after:flex-1 after:border-t after:border-gray-200 after:ms-6 dark:text-gray-500 dark:before:border-gray-600 dark:after:border-gray-600">
-              Or
-            </div>
-            {/* Form */}
-            <form onSubmit={signupForm.handleSubmit}>
-              <div className="grid gap-y-4">
-                {/* Form Group */}
-                <div>
-                  <label
-                    htmlFor="name"
-                    className="block text-sm mb-2 dark:text-white"
-                  >
-                    Name
-                  </label>
-                  <div className="relative">
-                    <input
-                      type="text"
-                      name="name"
-                      value={signupForm.values.name}
-                      onChange={signupForm.handleChange}
-                      className="py-3 px-4 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600"
-                      aria-describedby="email-error"
-                    />
-                    <div className="hidden absolute inset-y-0 end-0 pointer-events-none pe-3">
-                      <svg
-                        className="size-5 text-red-500"
-                        width={16}
-                        height={16}
-                        fill="currentColor"
-                        viewBox="0 0 16 16"
-                        aria-hidden="true"
-                      >
-                        <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8 4a.905.905 0 0 0-.9.995l.35 3.507a.552.552 0 0 0 1.1 0l.35-3.507A.905.905 0 0 0 8 4zm.002 6a1 1 0 1 0 0 2 1 1 0 0 0 0-2z" />
-                      </svg>
-                    </div>
-                  </div>
-                  <p className="hidden text-xs text-red-600 mt-2" id="email-error">
-                    Please include a valid email address so we can get back to you
-                  </p>
-                </div>
-                <div>
-                  <label
-                    htmlFor="email"
-                    className="block text-sm mb-2 dark:text-white"
-                  >
-                    Email address
-                  </label>
-                  <div className="relative">
-                    <input
-                      type="email"
-                      name="email"
-                      value={signupForm.values.email}
-                      onChange={signupForm.handleChange}
-                      className="py-3 px-4 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600"
-                      required=""
-                      aria-describedby="email-error"
-                    />
-                    <div className="hidden absolute inset-y-0 end-0 pointer-events-none pe-3">
-                      <svg
-                        className="size-5 text-red-500"
-                        width={16}
-                        height={16}
-                        fill="currentColor"
-                        viewBox="0 0 16 16"
-                        aria-hidden="true"
-                      >
-                        <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8 4a.905.905 0 0 0-.9.995l.35 3.507a.552.552 0 0 0 1.1 0l.35-3.507A.905.905 0 0 0 8 4zm.002 6a1 1 0 1 0 0 2 1 1 0 0 0 0-2z" />
-                      </svg>
-                    </div>
-                  </div>
-                  <p className="hidden text-xs text-red-600 mt-2" id="email-error">
-                    Please include a valid email address so we can get back to you
-                  </p>
-                </div>
-                {/* End Form Group */}
-                {/* Form Group */}
-                <div>
-                  <label
-                    htmlFor="password"
-                    className="block text-sm mb-2 dark:text-white"
-                  >
-                    Password
-                  </label>
-                  <div className="relative">
-                    <input
-                      type="password"
-                      name="password"
-                      value={signupForm.values.password}
-                      onChange={signupForm.handleChange}
-                      className="py-3 px-4 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600"
-                      required=""
-                      aria-describedby="password-error"
-                    />
-                    <div className="hidden absolute inset-y-0 end-0 pointer-events-none pe-3">
-                      <svg
-                        className="size-5 text-red-500"
-                        width={16}
-                        height={16}
-                        fill="currentColor"
-                        viewBox="0 0 16 16"
-                        aria-hidden="true"
-                      >
-                        <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8 4a.905.905 0 0 0-.9.995l.35 3.507a.552.552 0 0 0 1.1 0l.35-3.507A.905.905 0 0 0 8 4zm.002 6a1 1 0 1 0 0 2 1 1 0 0 0 0-2z" />
-                      </svg>
-                    </div>
-                  </div>
-                  <p className="hidden text-xs text-red-600 mt-2" id="password-error">
-                    8+ characters required
-                  </p>
-                </div>
-                {/* End Form Group */}
-                {/* Form Group */}
-                <div>
-                  <label
-                    htmlFor="confirm-password"
-                    className="block text-sm mb-2 dark:text-white"
-                  >
-                    Confirm Password
-                  </label>
-                  <div className="relative">
-                    <input
-                      type="password"
-                      name="cpassword"
-                      value={signupForm.values.cpassword}
-                      onChange={signupForm.handleChange}
-                      className="py-3 px-4 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:ring-gray-600"
-                      required=""
-                      aria-describedby="confirm-password-error"
-                    />
-                    <div className="hidden absolute inset-y-0 end-0 pointer-events-none pe-3">
-                      <svg
-                        className="size-5 text-red-500"
-                        width={16}
-                        height={16}
-                        fill="currentColor"
-                        viewBox="0 0 16 16"
-                        aria-hidden="true"
-                      >
-                        <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8 4a.905.905 0 0 0-.9.995l.35 3.507a.552.552 0 0 0 1.1 0l.35-3.507A.905.905 0 0 0 8 4zm.002 6a1 1 0 1 0 0 2 1 1 0 0 0 0-2z" />
-                      </svg>
-                    </div>
-                  </div>
-                  <p
-                    className="hidden text-xs text-red-600 mt-2"
-                    id="confirm-password-error"
-                  >
-                    Password does not match the password
-                  </p>
-                </div>
-                {/* End Form Group */}
-                {/* Checkbox */}
-                <div className="flex items-center">
-                  <div className="flex">
-                    <input
-                      id="remember-me"
-                      name="remember-me"
-                      type="checkbox"
-                      className="shrink-0 mt-0.5 border-gray-200 rounded text-blue-600 focus:ring-blue-500 dark:bg-gray-800 dark:border-gray-700 dark:checked:bg-blue-500 dark:checked:border-blue-500 dark:focus:ring-offset-gray-800"
-                    />
-                  </div>
-                  <div className="ms-3">
-                    <label htmlFor="remember-me" className="text-sm dark:text-white">
-                      I accept the{" "}
-                      <a
-                        className="text-blue-600 decoration-2 hover:underline font-medium"
-                        href="#"
-                      >
-                        Terms and Conditions
-                      </a>
-                    </label>
-                  </div>
-                </div>
-                {/* End Checkbox */}
-                <button
-                  type="submit"
-                  className="w-full py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none"
+    <div>
+      <div className="bg-white py-6 sm:py-8 lg:py-12 bg-orange-200">
+        <div className="mx-auto max-w-screen-2xl px-4 md:px-8">
+          <h2 className="mb-4 text-center text-2xl font-bold text-gray-800 md:mb-8 lg:text-3xl">
+            Register
+          </h2>
+          <form className="mx-auto max-w-lg rounded-lg border bg-orange-50" onSubmit={signupForm.handleSubmit}>
+            <div className="flex flex-col gap-4 p-4 md:p-8">
+              <div>
+                <label
+                  htmlFor="name"
+                  className="mb-2 inline-block text-sm text-gray-800 sm:text-base"
                 >
-                  Sign up
-                </button>
+                  Name
+                </label>
+                <input
+                  name="name"
+                  type="text"
+                  value={signupForm.values.name}
+                  onChange={signupForm.handleChange}
+                  className="w-full rounded border bg-gray-50 px-3 py-2 text-gray-800 outline-none ring-indigo-300 transition duration-100 focus:ring"
+                />
+                {
+                  signupForm.touched.name &&
+                  <span className="text-red-500">{signupForm.errors.name}</span>
+                }
               </div>
-            </form>
-            {/* End Form */}
-          </div>
+              <div>
+                <label
+                  htmlFor="email"
+                  className="mb-2 inline-block text-sm text-gray-800 sm:text-base"
+                >
+                  Email
+                </label>
+                <input
+                  name="email"
+                  type="email"
+                  value={signupForm.values.email}
+                  onChange={signupForm.handleChange}
+                  className="w-full rounded border bg-gray-50 px-3 py-2 text-gray-800 outline-none ring-indigo-300 transition duration-100 focus:ring"
+                />
+                {
+                  signupForm.touched.email &&
+                  <span className="text-red-500">{signupForm.errors.email}</span>
+                }
+              </div>
+              <div>
+                <label
+                  htmlFor="password"
+                  className="mb-2 inline-block text-sm text-gray-800 sm:text-base"
+                >
+                  Password
+                </label>
+                <input
+
+                  name="password"
+                  type="password"
+                  value={signupForm.values.password}
+                  onChange={signupForm.handleChange}
+                  className="w-full rounded border bg-gray-50 px-3 py-2 text-gray-800 outline-none ring-indigo-300 transition duration-100 focus:ring"
+                />
+                {
+                  signupForm.touched.password &&
+                  <span className="text-red-500">{signupForm.errors.password}</span>
+                }
+              </div>
+              <div>
+                <label
+                  htmlFor="confirm-password"
+                  className="mb-2 inline-block text-sm text-gray-800 sm:text-base"
+                >
+                  Confirm Password
+                </label>
+                <input
+                  type="password"
+                  name="cpassword"
+                  value={signupForm.values.cpassword}
+                  onChange={signupForm.handleChange}
+                  className="w-full rounded border bg-gray-50 px-3 py-2 text-gray-800 outline-none ring-indigo-300 transition duration-100 focus:ring"
+                />
+                {
+                  signupForm.touched.cpassword &&
+                  <span className="text-red-500">{signupForm.errors.cpassword}</span>
+                }
+                <div className="hidden absolute inset-y-0 end-0 pointer-events-none pe-3">
+                  <svg
+                    className="size-5 text-red-500"
+                    width={16}
+                    height={16}
+                    fill="currentColor"
+                    viewBox="0 0 16 16"
+                    aria-hidden="true"
+                  >
+                    <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8 4a.905.905 0 0 0-.9.995l.35 3.507a.552.552 0 0 0 1.1 0l.35-3.507A.905.905 0 0 0 8 4zm.002 6a1 1 0 1 0 0 2 1 1 0 0 0 0-2z" />
+                  </svg>
+                </div>
+              </div>
+              <p
+                className="hidden text-xs text-red-600 mt-2"
+                id="confirm-password-error"
+              >
+                Password does not match the password
+              </p>
+              <button type='submit' className="block rounded-lg bg-gray-800 px-8 py-3 text-center text-sm font-semibold text-white outline-none ring-gray-300 transition duration-100 hover:bg-gray-700 focus-visible:ring active:bg-gray-600 md:text-base">
+                Signup
+              </button>
+              <div className="relative flex items-center justify-center">
+                <span className="absolute inset-x-0 h-px bg-gray-300" />
+                <span className="relative bg-white px-4 text-sm text-gray-400">
+                  Log in with social
+                </span>
+              </div>
+              <button className="flex items-center justify-center gap-2 rounded-lg border border-gray-300 bg-white px-8 py-3 text-center text-sm font-semibold text-gray-800 outline-none ring-gray-300 transition duration-100 hover:bg-gray-100 focus-visible:ring active:bg-gray-200 md:text-base">
+                <svg
+                  className="h-5 w-5 shrink-0"
+                  width={24}
+                  height={24}
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M23.7449 12.27C23.7449 11.48 23.6749 10.73 23.5549 10H12.2549V14.51H18.7249C18.4349 15.99 17.5849 17.24 16.3249 18.09V21.09H20.1849C22.4449 19 23.7449 15.92 23.7449 12.27Z"
+                    fill="#4285F4"
+                  />
+                  <path
+                    d="M12.2549 24C15.4949 24 18.2049 22.92 20.1849 21.09L16.3249 18.09C15.2449 18.81 13.8749 19.25 12.2549 19.25C9.12492 19.25 6.47492 17.14 5.52492 14.29H1.54492V17.38C3.51492 21.3 7.56492 24 12.2549 24Z"
+                    fill="#34A853"
+                  />
+                  <path
+                    d="M5.52488 14.29C5.27488 13.57 5.14488 12.8 5.14488 12C5.14488 11.2 5.28488 10.43 5.52488 9.71V6.62H1.54488C0.724882 8.24 0.254883 10.06 0.254883 12C0.254883 13.94 0.724882 15.76 1.54488 17.38L5.52488 14.29Z"
+                    fill="#FBBC05"
+                  />
+                  <path
+                    d="M12.2549 4.75C14.0249 4.75 15.6049 5.36 16.8549 6.55L20.2749 3.13C18.2049 1.19 15.4949 0 12.2549 0C7.56492 0 3.51492 2.7 1.54492 6.62L5.52492 9.71C6.47492 6.86 9.12492 4.75 12.2549 4.75Z"
+                    fill="#EA4335"
+                  />
+                </svg>
+                Continue with Google
+              </button>
+            </div>
+            <div className="flex items-center justify-center bg-gray-100 p-4">
+              <p className="text-center text-sm text-gray-500">
+                Already Registered.{" "}
+                <Link
+                  href="/login"
+                  className="text-indigo-500 transition duration-100 hover:text-indigo-600 active:text-indigo-700"
+                >
+                  Login
+                </Link>
+              </p>
+            </div>
+          </form>
         </div>
       </div>
+
+
+
     </div>
 
 

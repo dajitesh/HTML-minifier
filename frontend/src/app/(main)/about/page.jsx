@@ -1,113 +1,195 @@
+// 'use client';
 import React from 'react'
 
 const About = () => {
   return (
-    
-    <div className="2xl:container 2xl:mx-auto lg:py-16 lg:px-20 md:py-12 md:px-6 py-9 px-4">
-  <div className="flex flex-col lg:flex-row justify-between gap-8">
-    <div className="w-full lg:w-5/12 flex flex-col justify-center">
-      <h1 className="text-3xl lg:text-4xl font-bold leading-9 text-gray-800 dark:text-white pb-4">
-        About Us
-      </h1>
-      <p className="font-normal text-base leading-6 text-gray-600 dark:text-white">
-        It is a long established fact that a reader will be distracted by the
-        readable content of a page when looking at its layout. The point of
-        using Lorem Ipsum.In the first place we have granted to God, and by this
-        our present charter confirmed for us and our heirs forever that the
-        English Church shall be free, and shall have her rights entire, and her
-        liberties inviolate; and we will that it be thus observed; which is
-        apparent from
-      </p>
-    </div>
-    <div className="w-full lg:w-8/12">
-      <img
-        className="w-full h-full"
-        src="https://i.ibb.co/FhgPJt8/Rectangle-116.png"
-        alt="A group of People"
-      />
-    </div>
-  </div>
-  <div className="flex lg:flex-row flex-col justify-between gap-8 pt-12">
-    <div className="w-full lg:w-5/12 flex flex-col justify-center">
-      <h1 className="text-3xl lg:text-4xl font-bold leading-9 text-gray-800 dark:text-white pb-4">
-        Our Story
-      </h1>
-      <p className="font-normal text-base leading-6 text-gray-600 dark:text-white">
-        It is a long established fact that a reader will be distracted by the
-        readable content of a page when looking at its layout. The point of
-        using Lorem Ipsum.In the first place we have granted to God, and by this
-        our present charter confirmed for us and our heirs forever that the
-        English Church shall be free, and shall have her rights entire, and her
-        liberties inviolate; and we will that it be thus observed; which is
-        apparent from
-      </p>
-    </div>
-    <div className="w-full lg:w-8/12 lg:pt-8">
-      <div className="grid md:grid-cols-4 sm:grid-cols-2 grid-cols-1 lg:gap-4 shadow-lg rounded-md">
-        <div className="p-4 pb-6 flex justify-center flex-col items-center">
-          <img
-            className="md:block hidden"
-            src="https://i.ibb.co/FYTKDG6/Rectangle-118-2.png"
-            alt="Alexa featured Image"
-          />
-          <img
-            className="md:hidden block"
-            src="https://i.ibb.co/zHjXqg4/Rectangle-118.png"
-            alt="Alexa featured Image"
-          />
-          <p className="font-medium text-xl leading-5 text-gray-800 dark:text-white mt-4">
-            Alexa
+
+    <div>
+      <div className="bg-white py-6 sm:py-8 lg:py-12">
+        <div className="mx-auto max-w-screen-md px-4 md:px-8">
+          <h1 className="mb-4 text-center text-2xl font-bold text-gray-800 sm:text-3xl md:mb-6">
+            Our competitive advantage
+          </h1>
+          <p className="mb-6 text-gray-500 sm:text-lg md:mb-8">
+            This is a section of some simple filler text, also known as placeholder
+            text. It shares some characteristics of a real written text but is random
+            or otherwise generated. It may be used to display a sample of fonts or
+            generate text for testing. Filler text is dummy text which has no meaning
+            however looks very similar to real text. The important factor when using
+            filler text is that the text looks realistic otherwise it will not look
+            very good.
+            <br />
+            <br />
+            This is a section of some simple filler text, also known as placeholder
+            text. It shares some characteristics of a real written text but is{" "}
+            <a
+              href="#"
+              className="text-indigo-500 underline transition duration-100 hover:text-indigo-600 active:text-indigo-700"
+            >
+              random
+            </a>{" "}
+            or otherwise generated. It may be used to display a sample of fonts or
+            generate text for testing. Filler text is dummy text which has no meaning
+            however looks very similar to real text.
           </p>
-        </div>
-        <div className="p-4 pb-6 flex justify-center flex-col items-center">
-          <img
-            className="md:block hidden"
-            src="https://i.ibb.co/fGmxhVy/Rectangle-119.png"
-            alt="Olivia featured Image"
-          />
-          <img
-            className="md:hidden block"
-            src="https://i.ibb.co/NrWKJ1M/Rectangle-119.png"
-            alt="Olivia featured Image"
-          />
-          <p className="font-medium text-xl leading-5 text-gray-800 dark:text-white mt-4">
-            Olivia
+          <h2 className="mb-2 text-xl font-semibold text-gray-800 sm:text-2xl md:mb-4">
+            About us
+          </h2>
+          <p className="mb-6 text-gray-500 sm:text-lg md:mb-8">
+            This is a section of some simple filler text, also known as placeholder
+            text. It shares some characteristics of a real written text but is random
+            or otherwise generated. It may be used to display a sample of fonts or
+            generate text for testing. Filler text is dummy text which has no meaning
+            however looks very similar to real text.
           </p>
-        </div>
-        <div className="p-4 pb-6 flex justify-center flex-col items-center">
-          <img
-            className="md:block hidden"
-            src="https://i.ibb.co/Pc6XVVC/Rectangle-120.png"
-            alt="Liam featued Image"
-          />
-          <img
-            className="md:hidden block"
-            src="https://i.ibb.co/C5MMBcs/Rectangle-120.png"
-            alt="Liam featued Image"
-          />
-          <p className="font-medium text-xl leading-5 text-gray-800 dark:text-white mt-4">
-            Liam
-          </p>
-        </div>
-        <div className="p-4 pb-6 flex justify-center flex-col items-center">
-          <img
-            className="md:block hidden"
-            src="https://i.ibb.co/7nSJPXQ/Rectangle-121.png"
-            alt="Elijah featured image"
-          />
-          <img
-            className="md:hidden block"
-            src="https://i.ibb.co/ThZBWxH/Rectangle-121.png"
-            alt="Elijah featured image"
-          />
-          <p className="font-medium text-xl leading-5 text-gray-800 dark:text-white mt-4">
-            Elijah
+          <ul className="mb-6 list-inside list-disc text-gray-500 sm:text-lg md:mb-8">
+            <li>This is a section of some simple filler text</li>
+            <li>Also known as placeholder text</li>
+            <li>It shares some characteristics of a real written text</li>
+          </ul>
+          <blockquote className="mb-6 border-l-4 pl-4 italic text-gray-500 sm:text-lg md:mb-8 md:pl-6">
+            “This is a section of some simple filler text, also known as placeholder
+            text. It shares some characteristics of a real written text but is random
+            or otherwise generated.”
+          </blockquote>
+          <div className="relative mb-6 overflow-hidden rounded-lg bg-gray-100 shadow-lg md:mb-8">
+            <img
+              src="https://images.unsplash.com/photo-1593508512255-86ab42a8e620?auto=format&q=75&fit=crop&w=600&h=350"
+              loading="lazy"
+              alt="Photo by Minh Pham"
+              className="h-full w-full object-cover object-center"
+            />
+          </div>
+          <h2 className="mb-2 text-xl font-semibold text-gray-800 sm:text-2xl md:mb-4">
+            Features
+          </h2>
+          <p className="text-gray-500 sm:text-lg">
+            This is a section of some simple filler text, also known as placeholder
+            text. It shares some characteristics of a real written text but is random
+            or otherwise generated. It may be used to display a sample of fonts or
+            generate text for testing. Filler text is dummy text which has no meaning
+            however looks very similar to real text.
           </p>
         </div>
       </div>
+
+
+      {/* features section  */}
+
+      <div className="bg-white py-6 sm:py-8 lg:py-12">
+        <div className="mx-auto max-w-screen-2xl px-4 md:px-8">
+          {/* text - start */}
+          <div className="mb-10 md:mb-16">
+            <h2 className="mb-4 text-center text-2xl font-bold text-gray-800 md:mb-6 lg:text-3xl">
+              Our competitive advantage
+            </h2>
+            <p className="mx-auto max-w-screen-md text-center text-gray-500 md:text-lg">
+              This is a section of some simple filler text, also known as placeholder
+              text. It shares some characteristics of a real written text but is
+              random or otherwise generated.
+            </p>
+          </div>
+          {/* text - end */}
+          <div className="grid gap-4 sm:grid-cols-2 md:gap-8 xl:grid-cols-3">
+            {/* feature - start */}
+            <div className="flex flex-col rounded-lg border p-4 md:p-6">
+              <h3 className="mb-2 text-lg font-semibold md:text-xl">Growth</h3>
+              <p className="mb-4 text-gray-500">
+                Filler text is dummy text which has no meaning however looks very
+                similar to real text.
+              </p>
+              <a
+                href="#"
+                className="mt-auto font-bold text-indigo-500 transition duration-100 hover:text-indigo-600 active:text-indigo-700"
+              >
+                More
+              </a>
+            </div>
+            {/* feature - end */}
+            {/* feature - start */}
+            <div className="flex flex-col rounded-lg border p-4 md:p-6">
+              <h3 className="mb-2 text-lg font-semibold md:text-xl">Security</h3>
+              <p className="mb-4 text-gray-500">
+                Filler text is dummy text which has no meaning however looks very
+                similar to real text.
+              </p>
+              <a
+                href="#"
+                className="mt-auto font-bold text-indigo-500 transition duration-100 hover:text-indigo-600 active:text-indigo-700"
+              >
+                More
+              </a>
+            </div>
+            {/* feature - end */}
+            {/* feature - start */}
+            <div className="flex flex-col rounded-lg border p-4 md:p-6">
+              <h3 className="mb-2 text-lg font-semibold md:text-xl">Cloud</h3>
+              <p className="mb-4 text-gray-500">
+                Filler text is dummy text which has no meaning however looks very
+                similar to real text.
+              </p>
+              <a
+                href="#"
+                className="mt-auto font-bold text-indigo-500 transition duration-100 hover:text-indigo-600 active:text-indigo-700"
+              >
+                More
+              </a>
+            </div>
+            {/* feature - end */}
+            {/* feature - start */}
+            <div className="flex flex-col rounded-lg border p-4 md:p-6">
+              <h3 className="mb-2 text-lg font-semibold md:text-xl">Speed</h3>
+              <p className="mb-4 text-gray-500">
+                Filler text is dummy text which has no meaning however looks very
+                similar to real text.
+              </p>
+              <a
+                href="#"
+                className="mt-auto font-bold text-indigo-500 transition duration-100 hover:text-indigo-600 active:text-indigo-700"
+              >
+                More
+              </a>
+            </div>
+            {/* feature - end */}
+            {/* feature - start */}
+            <div className="flex flex-col rounded-lg border p-4 md:p-6">
+              <h3 className="mb-2 text-lg font-semibold md:text-xl">Support</h3>
+              <p className="mb-4 text-gray-500">
+                Filler text is dummy text which has no meaning however looks very
+                similar to real text.
+              </p>
+              <a
+                href="#"
+                className="mt-auto font-bold text-indigo-500 transition duration-100 hover:text-indigo-600 active:text-indigo-700"
+              >
+                More
+              </a>
+            </div>
+            {/* feature - end */}
+            {/* feature - start */}
+            <div className="flex flex-col rounded-lg border p-4 md:p-6">
+              <h3 className="mb-2 text-lg font-semibold md:text-xl">Dark Mode</h3>
+              <p className="mb-4 text-gray-500">
+                Filler text is dummy text which has no meaning however looks very
+                similar to real text.
+              </p>
+              <a
+                href="#"
+                className="mt-auto font-bold text-indigo-500 transition duration-100 hover:text-indigo-600 active:text-indigo-700"
+              >
+                More
+              </a>
+            </div>
+            {/* feature - end */}
+          </div>
+        </div>
+      </div>
+
+
     </div>
-  </div>
-</div>
+
+
+
 
   )
 }

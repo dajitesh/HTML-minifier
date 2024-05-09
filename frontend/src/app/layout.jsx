@@ -1,6 +1,6 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
-import PrelineScript from "./PrelineScript";
+// import PrelineScript from "./PrelineScript";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -14,7 +14,7 @@ export default function RootLayout({ children }) {
     <html lang="en" data-theme="light">
       <body className={inter.className}>
         {children}
-        <PrelineScript />
+        {/* <PrelineScript /> */}
       </body>
     </html>
   );

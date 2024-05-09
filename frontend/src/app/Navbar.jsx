@@ -1,142 +1,154 @@
-'use client'
-import Link from "next/link";
-import React, { useState } from "react";
+import React, { useState } from 'react';
 import useUserContext from "../context/userContext";
+import Link from "next/link";
 
 const Navbar = () => {
-
+  const [isOpen, setIsOpen] = useState(false); // State to manage menu visibility
   const { loggedIn, logout } = useUserContext();
-  console.log(loggedIn);
-  const showLoggedIn = () => {
-    if (loggedIn) {
-      return (
-        <div className="hs-collapse hidden overflow-hidden transition-all duration-300 basis-full grow sm:grow-0 sm:basis-auto sm:block sm:order-2">
-          <div className="flex flex-col gap-5 mt-5 sm:flex-row sm:items-center sm:mt-0 sm:ps-5">
 
-            <button
-              className="font-medium text-gray-600 hover:text-gray-400 dark:text-neutral-400 dark:hover:text-neutral-500 flex sm:hidden"
-               onClick={logout}
-            >
-              Logout
-            </button>
-          </div>
-        </div>
-      )
-    } else {
-      return (
-        <div>
-          <Link
-            className="font-medium text-gray-600 hover:text-gray-400 dark:text-neutral-400 dark:hover:text-neutral-500 flex sm:hidden"
-            href="/login"
-          >
-            Login
-          </Link>
-          <Link
-            className="font-medium text-gray-600 hover:text-gray-400 dark:text-neutral-400 dark:hover:text-neutral-500 flex sm:hidden"
-            href="/signup"
-          >
-            Signup
-          </Link>
-        </div>
-      )
-    }
-  }
+  const toggleMenu = () => {
+    setIsOpen(!isOpen);
+  };
 
   return (
     <div>
-      <header className="flex flex-wrap sm:justify-start sm:flex-nowrap w-full bg-blue-100 border-b-2 border-cyan-700 text-sm py-4 dark:bg-neutral-800">
-        <nav
-          className="   max-w-[85rem] w-full mx-auto px-4 py-1 flex flex-wrap basis-full items-center justify-between z-50"
-          aria-label="Global"
-        >
+      <nav className="bg-white dark:bg-gray-900 fixed w-full z-20 top-0 start-0 border-b border-gray-200 dark:border-gray-600 bg-opacity-85">
+        <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
           <Link
-            className="sm:order-1 flex-none text-xl font-semibold dark:text-white"
             href="/"
+            className="flex items-center space-x-3 rtl:space-x-reverse"
           >
-            Resource Minifier
-          </Link>
-          <div className="sm:order-3 flex items-center gap-x-2">
-            <button
-              type="button"
-              className="sm:hidden hs-collapse-toggle p-2.5 inline-flex justify-center items-center gap-x-2 rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-transparent dark:border-neutral-700 dark:text-white dark:hover:bg-white/10"
-              data-hs-collapse="#navbar-alignment"
-              aria-controls="navbar-alignment"
-              aria-label="Toggle navigation"
-            >
-              <svg
-                className="hs-collapse-open:hidden flex-shrink-0 size-4"
-                xmlns="http://www.w3.org/2000/svg"
-                width={24}
-                height={24}
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth={2}
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <line x1={3} x2={21} y1={6} y2={6} />
-                <line x1={3} x2={21} y1={12} y2={12} />
-                <line x1={3} x2={21} y1={18} y2={18} />
-              </svg>
-              <svg
-                className="hs-collapse-open:block hidden flex-shrink-0 size-4"
-                xmlns="http://www.w3.org/2000/svg"
-                width={24}
-                height={24}
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth={2}
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <path d="M18 6 6 18" />
-                <path d="m6 6 12 12" />
-              </svg>
-            </button>
-            <button type="button" className="hidden sm:flex ">
-              <Link href='/login' className="bg-gradient-to-r from-purple-400 to-blue-500 hover:from-pink-500 hover:to-purple-600 text-dark font-bold py-3 px-6 rounded-full shadow-lg transform transition-all duration-500 ease-in-out hover:scale-110 hover:brightness-110 hover:animate-pulse"> Login
-              </Link>
-            </button>
-            <button type="button" className="hidden sm:flex">
-              <Link href='/signup' className="bg-gradient-to-r from-purple-400 to-blue-500 hover:from-pink-500 hover:to-purple-600 text-dark font-bold py-3 px-6 rounded-full shadow-lg transform transition-all duration-500 ease-in-out hover:scale-110 hover:brightness-110 hover:animate-pulse"> Signup
-              </Link>
-            </button>
-          </div>
-          <div
-            id="navbar-alignment"
-            className="hs-collapse hidden overflow-hidden transition-all duration-300 basis-full grow sm:grow-0 sm:basis-auto sm:block sm:order-2"
-          >
-            <div className="flex flex-col gap-5 mt-5 sm:flex-row sm:items-center sm:mt-0 sm:ps-5">
-              <Link
-                className="font-medium text-gray-600 hover:text-gray-400 dark:text-neutral-400 dark:hover:text-neutral-500"
-                href="/docs/getting-started"
-              >
-                Docs
-              </Link>
-              <Link
-                className="font-medium text-gray-600 hover:text-gray-400 dark:text-neutral-400 dark:hover:text-neutral-500"
-                href="/about"
-              >
-                About
-              </Link>
-              <Link
-                className="font-medium text-gray-600 hover:text-gray-400 dark:text-neutral-400 dark:hover:text-neutral-500"
-                href="/contact"
-              >
-                ContactUs
-              </Link>
-               {
-                showLoggedIn()
-               }
+            <div className="flex lg:flex-1">
+              <a href="#" className="-m-1.5 p-1.5">
+                <span className="sr-only">Your Company</span>
+                <img
+                  className="h-8 w-auto"
+                  src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
+                  alt=""
+                />
+              </a>
             </div>
-          </div>
-        </nav>
-      </header>
+            <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
+              Resource Minifier
+            </span>
+          </Link>
 
+          {/* Conditional rendering for logged-in state */}
+          {loggedIn ? (
+            <div className='flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse'>
+              <button
+                onClick={logout}
+                type="button"
+                className="me-3 text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800"
+              >
+                Logout
+              </button>
+            </div>
+          ) : (
+            <div className="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
+              <Link
+                href={"/signup"}
+                className="me-3 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 hidden md:block"
+              >
+                Signup
+              </Link>
+              <Link
+                href={"/login"}
+                className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 hidden md:block"
+              >
+                Login
+              </Link>
+            </div>
+          )}
+
+          {/* Toggle Button */}
+          <div className="relative">
+            <button
+              onClick={toggleMenu}
+              className={` right-0 inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600`}
+              aria-controls="navbar-sticky"
+              aria-expanded={isOpen ? 'true' : 'false'}
+            >
+              <span className="sr-only">Open main menu</span>
+              <svg
+                className="w-5 h-5"
+                aria-hidden="false"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 17 14"
+              >
+                <path
+                  stroke="currentColor"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M1 1h15M1 7h15M1 13h15"
+                />
+              </svg>
+            </button>
+          </div>
+
+          {/* Menu */}
+          <div
+            className={`${isOpen ? 'block' : 'hidden'} items-center justify-between w-full md:flex md:w-auto md:order-1`}
+            id="navbar-sticky"
+          >
+            <ul className="flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700 bg-opacity-85">
+              <li>
+                <Link
+                  href="/"
+                  className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
+                >
+                  Home
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="docs/getting-started"
+                  className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
+                >
+                  Docs
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/about"
+                  className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
+                >
+                  About
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/contact"
+                  className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
+                >
+                  Contact
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/signup"
+                  className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700 block md:hidden"
+                >
+                  Signup
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/login"
+                  className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700 block md:hidden"
+                >
+                  Login
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+        </div>
+      </nav>
     </div>
-  )
+  );
 }
 
 export default Navbar;

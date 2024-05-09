@@ -11,8 +11,15 @@
   },
   "dependencies": {
     "clean-css": "^5.3.3",
+<<<<<<< HEAD
+    "postcss": "^8.4.38",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "terser-webpack-plugin": "^5.3.10",
+=======
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+>>>>>>> 6957eb725e8a646abe8844270b5e508cb99f6df9
     "uglify-js": "^3.17.4"
   },
   "devDependencies": {

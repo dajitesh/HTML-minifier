@@ -1,31 +1,39 @@
-import React, { useState } from 'react';
-import UglifyJS from 'uglify-js';
-import CleanCSS from 'clean-css';
+import React, { useEffect } from 'react';
 
-const FileMinifier = (props) => {
-    const [minifiedContent, setMinifiedContent] = useState('');
+const FileMinifier = ({fileSource}) => {
 
-    const handleMinify = () => {
-        const { fileSource, fileType } = props;
-        let minifiedContent = '';
+    const minifyCSS = (css) => {
+        fetch('http://localhost:5000/util/minify', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ css }),
+        }).then((res) => {
+            return res.json();
+        }).then((data) => {
+            console.log(data);
+            return data;
+        }).catch((err) => {
+            console.log(err);
+        });
+    }
 
-        if (fileType === 'js') {
-            const result = UglifyJS.minify(fileSource);
-            minifiedContent = result.code;
-        } else if (fileType === 'css') {
-            const result = new CleanCSS().minify(fileSource);
-            minifiedContent = result.styles;
-        }
+    useEffect(() => {
+        const css = `
+    body {
+      font-family: sans-serif;
+    }
+  `;
 
-        setMinifiedContent(minifiedContent);
-    };
+        const minifiedCSS = minifyCSS(css);
+        console.log(minifiedCSS);
+    }, [])
+
 
     return (
-        <div>
-            <button onClick={handleMinify}>Minify</button>
-            <pre>{minifiedContent}</pre>
-        </div>
-    );
-};
+        <div>FileMinifier</div>
+    )
+}
 
-export default FileMinifier;
+export default FileMinifier

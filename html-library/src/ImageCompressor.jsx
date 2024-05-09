@@ -44,7 +44,7 @@ function readableBytes(bytes) {
 }
 
 
-const ImageCompressor = ({src, alt, style}) => {
+const ImageCompressor = ({ src, alt, style }) => {
 
     const imgRef = useRef(null);
     const imgLoaded = useRef(false);
@@ -69,7 +69,9 @@ const ImageCompressor = ({src, alt, style}) => {
                 // newImg.onload = () => {
                 //     compressedRef.current = newImg;
                 // };
-                compressedRef.current.src = URL.createObjectURL(blob);
+                imgRef.current.src = URL.createObjectURL(blob);
+                // remove the img ref
+                imgRef.current = null;
             },
         );
     };
@@ -86,7 +88,7 @@ const ImageCompressor = ({src, alt, style}) => {
     return (
         <div>
             <img ref={compressedRef} src="" alt="" />
-            <img ref={imgRef} src="/large_img.jpg" alt="" />
+            <img ref={imgRef} src={src} alt={alt} />
         </div>
     )
 }

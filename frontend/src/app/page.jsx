@@ -1,12 +1,70 @@
 'use client';
 import React from 'react';
 import Link from 'next/link';
+import gsap from 'gsap';
+import { useGSAP } from '@gsap/react';
+import { useRef } from 'react';
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+
+gsap.registerPlugin(useGSAP);
+gsap.registerPlugin(ScrollTrigger);
+
+
 
 const Home = () => {
+  const herosection = useRef();
+
+  useGSAP(() => {
+    var tl = gsap.timeline()
+
+    tl.from(".hero-text", {
+      scale: 0,
+    })
+    tl.from(".gettingbutton", {
+      y: 5,
+      yoyo: true,
+      repeat: -1,
+    })
+    gsap.from(".gg", {
+      opacity: 0,
+      scrollTrigger: {
+        trigger: "#gallerysection",
+        scrub: true,
+        // markers: true,
+        start: 'top 70%',
+        end: 'bottom 70%',
+      },
+    });
+    gsap.from(".ts", {
+      y: -120,
+      opacity: 0,
+      scrollTrigger: {
+        trigger: ".tm1",
+        scrub: true,
+        // markers: true,
+        start: 'top 70%',
+        end: 'bottom 70%',
+      },
+    });
+    gsap.from(".hs", {
+      scale:1.5,
+      scrollTrigger: {
+        trigger: ".hs1",
+        scrub: true,
+        // markers: true,
+        start: 'top 70%',
+        end: 'bottom 70%',
+      },
+    });
+
+
+
+  }, { scope: herosection })
   return (
-    <div>
-      <section className="relative overflow-hidden bg-gradient-to-b from-blue-50 via-transparent to-transparent pb-12 pt-20 sm:pb-16 sm:pt-32 lg:pb-24 xl:pb-32 xl:pt-40">
-        <div className="relative z-10">
+    <div ref={herosection} className='overflow-hidden'>
+      <section className="relative overflow-hidden bg-gradient-to-b from-blue-50 via-transparent to-transparent pb-12 pt-20 sm:pb-16 sm:pt-32 lg:pb-24 xl:pb-32 xl:pt-40 main-section mt-20">
+        <div className="relative z-10 section-2">
           <div className="absolute inset-x-0 top-1/2 -z-10 flex -translate-y-1/2 justify-center overflow-hidden [mask-image:radial-gradient(50%_45%_at_50%_55%,white,transparent)]">
             <svg
               className="h-[60rem] w-[100rem] flex-none stroke-blue-600 opacity-20"
@@ -42,17 +100,17 @@ const Home = () => {
         </div>
         <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center">
-            <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
+            <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl hero-text">
               Resource Minifier
               <span className="text-blue-600"><br />HTML LIBRARY</span>
             </h1>
-            <h2 className="mt-6 text-lg leading-8 text-gray-600">
+            <h2 className="mt-6 text-lg leading-8 text-gray-600 hero-text">
               Start developing with an open source library bring your ideas to life in no time. Resource minifier is an open source HTML Library designed to streamline and optimize your web development process.
             </h2>
-            <div className="mt-10 flex items-center justify-center gap-x-6">
-              <a
-                className="isomorphic-link isomorphic-link--internal inline-flex items-center justify-center gap-2 rounded-xl bg-blue-600 px-4 py-3 text-sm font-semibold text-white shadow-sm transition-all duration-150 hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
-                href="/login"
+            <div className="mt-10 flex items-center justify-center gap-x-6 gettingbutton cursor-pointer">
+              <Link
+                className="isomorphic-link isomorphic-link--internal inline-flex items-center justify-center gap-2 rounded-xl bg-blue-600 px-4 py-3 text-sm font-semibold text-white shadow-sm transition-all duration-150 hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600 cursor-pointer"
+                href="docs/getting-started"
               >
                 Get Started
                 <svg
@@ -67,8 +125,9 @@ const Home = () => {
                     clipRule="evenodd"
                   />
                 </svg>
-              </a>
+              </Link>
             </div>
+
           </div>
         </div>
       </section>
@@ -80,9 +139,9 @@ const Home = () => {
 
 
       {/* Galley section */}
-      <div className="bg-white py-6 sm:py-8 lg:py-12">
-        <div className="mx-auto max-w-screen-2xl px-4 md:px-8">
-          <h2 className="mb-4 text-center text-2xl font-bold text-gray-800 md:mb-8 lg:text-3xl xl:mb-12">
+      <div className="bg-white py-6 sm:py-8 lg:py-12 gg" >
+        <div className="mx-auto max-w-screen-2xl px-4 md:px-8" id='gallerysection'>
+          <h2 className="mb-4 text-center text-2xl font-bold text-gray-800 md:mb-8 lg:text-3xl xl:mb-12" >
             Gallery
           </h2>
           <div className="mb-4 grid grid-cols-2 gap-4 sm:grid-cols-3 md:mb-8 md:grid-cols-4 md:gap-6 xl:gap-8">
@@ -174,13 +233,13 @@ const Home = () => {
 
 
       {/* team section */}
-      <section className="py-6 dark:bg-gray-100 dark:text-gray-800">
+      <section className="py-6 dark:bg-gray-100 dark:text-gray-800 ts">
         <div className="container flex flex-col items-center justify-center p-4 mx-auto sm:p-10">
           <p className="p-2 text-sm font-medium tracking-wider text-center uppercase">Development team</p>
           <h1 className="text-4xl font-bold leading-none text-center sm:text-5xl">The talented people behind the scenes</h1>
           <div className="flex flex-row flex-wrap-reverse justify-center mt-8">
-            <div className="flex flex-col justify-center w-full px-8 mx-6 my-12 text-center rounded-md md:w-96 lg:w-80 xl:w-64 dark:bg-gray-800 dark:text-gray-100">
-              <img alt="" className="self-center flex-shrink-0 w-24 h-24 -mt-12 bg-center bg-cover rounded-full dark:bg-gray-500" src="https://source.unsplash.com/100x100/?portrait?0" />
+            <div className="flex flex-col justify-center w-full px-8 mx-6 my-12 text-center rounded-md md:w-96 lg:w-80 xl:w-64 dark:bg-gray-800 dark:text-gray-100 tm1">
+              <img alt="" className="self-center flex-shrink-0 w-32 h-32 -mt-12 bg-center bg-cover rounded-full dark:bg-gray-500" src="https://source.unsplash.com/100x100/?portrait?0" />
               <div className="flex-1 my-4">
                 <p className="text-xl font-semibold leading-snug">Shashank Verma</p>
                 <p>UI / UX Designer</p>
@@ -210,7 +269,7 @@ const Home = () => {
               </div>
             </div>
             <div className="flex flex-col justify-center w-full px-8 mx-6 my-12 text-center rounded-md md:w-96 lg:w-80 xl:w-64 dark:bg-gray-800 dark:text-gray-100">
-              <img alt="" className="self-center flex-shrink-0 w-24 h-24 -mt-12 bg-center bg-cover rounded-full dark:bg-gray-500" src="https://source.unsplash.com/100x100/?portrait?1" />
+              <img alt="" className="self-center flex-shrink-0 w-32 h-32 -mt-12 bg-center bg-cover rounded-full dark:bg-gray-500" src="https://source.unsplash.com/100x100/?portrait?1" />
               <div className="flex-1 my-4">
                 <p className="text-xl font-semibold leading-snug">Ajitesh Kumar Dwivedi</p>
                 <p>Backend Developer</p>
@@ -249,9 +308,9 @@ const Home = () => {
 
 
 
-      <div className="bg-white py-6 sm:py-8 lg:py-12">
+      <div className="bg-white py-6 sm:py-8 lg:py-12 hs">
         <div className="mx-auto max-w-screen-2xl px-4 md:px-8">
-          <div className="flex flex-col overflow-hidden rounded-lg bg-gray-200 sm:flex-row md:h-80">
+          <div className="flex flex-col overflow-hidden rounded-lg bg-gray-200 sm:flex-row md:h-80 hs1">
             {/* image - start */}
             <div className="order-first h-48 w-full bg-gray-300 sm:order-none sm:h-auto sm:w-1/2 lg:w-2/5">
               <img
@@ -304,7 +363,7 @@ const Home = () => {
           <div className="lg:w-1/3">
             <a rel="noopener noreferrer" href="#" className="flex justify-center space-x-3 lg:justify-start">
               <div className="flex items-center justify-center w-12 h-12 rounded-full dark:bg-violet-600">
-              <img
+                <img
                   className="h-12 w-auto"
                   src="img/logo.jpg"
                   alt=""
@@ -356,7 +415,7 @@ const Home = () => {
                 </li>
               </ul>
             </div>
-            
+
           </div>
         </div>
         <div className="py-6 text-sm text-center dark:text-gray-600">© 1968 Company Co. All rights reserved.</div>

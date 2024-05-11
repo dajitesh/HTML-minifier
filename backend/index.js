@@ -8,6 +8,7 @@ const app = express();
 // const postRouter = require('./routers/postRouter');
 const userRouter = require('./routers/userRouter');
 const contactRouter = require('./routers/contactRouter');
+const feedbackRouter = require('./routers/feedbackRouter');
 // const userRouter = require('./routers/userRouter');
 
 // middleware
@@ -21,6 +22,7 @@ app.use(express.json());
 // app.use('/post', postRouter);
 app.use('/user', userRouter);
 app.use('/contact', contactRouter);
+app.use('/feedback', feedbackRouter);
 
 const port = 5000;
 

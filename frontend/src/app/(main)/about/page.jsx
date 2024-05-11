@@ -8,29 +8,28 @@ const About = () => {
       <div className="bg-white py-6 sm:py-8 lg:py-12  mt-16">
         <div className="mx-auto max-w-screen-md px-4 md:px-8">
           <h1 className="mb-4 text-center text-2xl font-bold text-gray-800 sm:text-3xl md:mb-6">
-            Our competitive advantage
+            About
           </h1>
           <p className="mb-6 text-gray-500 sm:text-lg md:mb-8">
-            This is a section of some simple filler text, also known as placeholder
-            text. It shares some characteristics of a real written text but is random
-            or otherwise generated. It may be used to display a sample of fonts or
-            generate text for testing. Filler text is dummy text which has no meaning
-            however looks very similar to real text. The important factor when using
-            filler text is that the text looks realistic otherwise it will not look
-            very good.
+            At Resource Minifier, we're not just a library – we're a team dedicated to crafting tools that empower developers to create lightning-fast websites. We believe that speed is essential for a smooth user experience and a thriving online presence.    Join the Conversation!
+
             <br />
             <br />
-            This is a section of some simple filler text, also known as placeholder
-            text. It shares some characteristics of a real written text but is{" "}
-            <a
-              href="#"
-              className="text-indigo-500 underline transition duration-100 hover:text-indigo-600 active:text-indigo-700"
-            >
-              random
-            </a>{" "}
-            or otherwise generated. It may be used to display a sample of fonts or
-            generate text for testing. Filler text is dummy text which has no meaning
-            however looks very similar to real text.
+            We're passionate about open-source collaboration and creating a vibrant community around Resource Minifier. Here's how you can connect with us:
+            <br />
+            <br />
+            <ul className="mb-6 list-inside list-disc text-gray-500 sm:text-lg md:mb-8 ">
+              <li>Community Forum: Share ideas, ask questions, and engage with other developers using Resource Minifier. (Link to community forum)</li>
+              <li>Contribute to the Codebase: Whether you're a seasoned developer or just starting out, your contributions are welcome! (Link to contribution guidelines)</li>
+            </ul>
+            Thank You!
+            <br />
+            <br />
+            We'd like to express our sincere gratitude to everyone who has been part of Resource Minifier's journey, from our dedicated team members to the incredible open-source community. Together, we're building a faster and more efficient web for the future.
+
+
+
+
           </p>
           <h2 className="mb-2 text-xl font-semibold text-gray-800 sm:text-2xl md:mb-4">
             About us

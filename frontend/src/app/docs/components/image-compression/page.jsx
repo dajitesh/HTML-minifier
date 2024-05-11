@@ -2,7 +2,7 @@ import React from 'react'
 
 const ImageCompression = () => {
   return (
-    <div>ImageCompression</div>
+    <div className='mt-28'>ImageCompression</div>
   )
 }
 

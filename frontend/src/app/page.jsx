@@ -107,10 +107,10 @@ const Home = () => {
             <h2 className="mt-6 text-lg leading-8 text-gray-600 hero-text">
               Start developing with an open source library bring your ideas to life in no time. Resource minifier is an open source HTML Library designed to streamline and optimize your web development process.
             </h2>
-            <div className="mt-10 flex items-center justify-center gap-x-6 gettingbutton cursor-pointer">
+            <div className="mt-10 flex items-center justify-center gap-x-6 gettingbutton">
               <Link
-                className="isomorphic-link isomorphic-link--internal inline-flex items-center justify-center gap-2 rounded-xl bg-blue-600 px-4 py-3 text-sm font-semibold text-white shadow-sm transition-all duration-150 hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600 cursor-pointer"
-                href="docs/getting-started"
+                className="isomorphic-link isomorphic-link--internal inline-flex items-center justify-center gap-2 rounded-xl bg-blue-600 px-4 py-3 text-sm font-semibold text-white shadow-sm transition-all duration-150 hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600 "
+                href="/docs/getting-started"
               >
                 Get Started
                 <svg

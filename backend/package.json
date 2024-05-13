@@ -16,6 +16,7 @@
     "ffmpeg-static": "^5.2.0",
     "fluent-ffmpeg": "^2.1.2",
     "mongoose": "^8.2.2",
+    "nodemailer": "^6.9.13",
     "nodemon": "^3.1.0"
   }
 }

@@ -52,7 +52,7 @@ const Signup = () => {
           console.log(response.status);
           if (response.status === 200) {
             enqueueSnackbar('User added successfully', { variant: 'success' })
-            router.push("/")
+            router.push("/login")
 
           } else {
             enqueueSnackbar('Something went wrong', { variant: 'error' })

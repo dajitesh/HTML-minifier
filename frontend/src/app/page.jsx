@@ -98,19 +98,25 @@ const Home = () => {
             </svg>
           </div>
         </div>
-        <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
+        <div className=" mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center">
-            <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl hero-text">
+            <h1 className="text-4xl font-bold  text-gray-900 sm:text-6xl hero-text">
               Resource Minifier
               <span className="text-blue-600"><br />HTML LIBRARY</span>
             </h1>
-            <h2 className="mt-6 text-lg leading-8 text-gray-600 hero-text">
+            <h2 className="mt-6 text-lg  text-gray-600 hero-text">
               Start developing with an open source library bring your ideas to life in no time. Resource minifier is an open source HTML Library designed to streamline and optimize your web development process.
             </h2>
-            <div className="mt-10 flex items-center justify-center gap-x-6 gettingbutton">
+          
+
+          </div>
+        </div>
+        
+      </section>
+      <div className=" flex items-center justify-center gap-x-6 ">
               <Link
                 className="isomorphic-link isomorphic-link--internal inline-flex items-center justify-center gap-2 rounded-xl bg-blue-600 px-4 py-3 text-sm font-semibold text-white shadow-sm transition-all duration-150 hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600 "
-                href="/docs/getting-started"
+                href="docs/getting-started"
               >
                 Get Started
                 <svg
@@ -127,10 +133,6 @@ const Home = () => {
                 </svg>
               </Link>
             </div>
-
-          </div>
-        </div>
-      </section>
 
 
 

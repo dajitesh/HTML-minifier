@@ -1,9 +1,11 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 
-const FileMinifier = ({fileSource}) => {
+const FileMinifier = ({ fileSource }) => {
+
+    const [minifiedContent, setMinifiedContent] = useState('');
 
     const minifyCSS = (css) => {
-        fetch('http://localhost:5000/util/minify', {
+        fetch('http://localhost:5000/minify/minify', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -13,6 +15,7 @@ const FileMinifier = ({fileSource}) => {
             return res.json();
         }).then((data) => {
             console.log(data);
+            setMinifiedContent(data);
             return data;
         }).catch((err) => {
             console.log(err);
@@ -20,19 +23,23 @@ const FileMinifier = ({fileSource}) => {
     }
 
     useEffect(() => {
-        const css = `
-    body {
-      font-family: sans-serif;
-    }
-  `;
-
-        const minifiedCSS = minifyCSS(css);
-        console.log(minifiedCSS);
+        fetch(fileSource)
+            .then((response) => response.text())
+            .then((css) => {
+                const minifiedCSS = minifyCSS(css);
+                // console.log(minifiedCSS);
+                // setMinifiedContent(minifiedCSS);
+            })
+            .catch((err) => {
+                console.log(err);
+            });
     }, [])
 
 
     return (
-        <div>FileMinifier</div>
+        <style>
+            {minifiedContent}
+        </style>
     )
 }
 

@@ -2,7 +2,7 @@ import React from 'react'
 
 const VideoCompression = () => {
   return (
-    <div>VideoCompression</div>
+    <div className='mt-28'>VideoCompression</div>
   )
 }
 

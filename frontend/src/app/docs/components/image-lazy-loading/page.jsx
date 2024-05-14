@@ -2,7 +2,7 @@ import React from 'react'
 
 const ImageLazyLoading = () => {
   return (
-    <div>ImageLazyLoading</div>
+    <div className='mt-28'>ImageLazyLoading</div>
   )
 }
 

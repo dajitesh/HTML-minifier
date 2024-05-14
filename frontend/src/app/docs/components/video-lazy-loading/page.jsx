@@ -2,7 +2,7 @@ import React from 'react'
 
 const VideoLazyLoading = () => {
   return (
-    <div>VideoLazyLoading</div>
+    <div className='mt-28'>VideoLazyLoading</div>
   )
 }
 

@@ -20,6 +20,7 @@
     "mongoose": "^8.2.2",
     "nodemailer": "^6.9.13",
     "nodemon": "^3.1.0",
-    "postcss": "^8.4.38"
+    "postcss": "^8.4.38",
+    "terser": "^5.31.0"
   }
 }

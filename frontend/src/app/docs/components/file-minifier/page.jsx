@@ -55,36 +55,40 @@ const FileMinifier = () => {
               <br />
               Dive into our documentation to see how Resource Minifier can be integrated into your project. Our step-by-step guide makes it easy to get started, and our examples will help you see the tool in action. If you're ready to make your websites leaner and faster, you’re in the right place.
             </p>
+
+            <h3 className='mt-5 font-bold text-xl'>Minifiying CSS Files</h3>
+            <p className='mt-3'>You need to provide <strong>data-file-type</strong> "css" attribute inside the element</p>
+
+            <div className='mt-4'>
+              <CopyBlock
+                language={'html'}
+                text={`<file-minify data-file-source="your_css_file.css" data-file-type="css" />
+<script src="http://localhost:5000/main.js"></script>`}
+                showLineNumbers={true}
+                theme={dracula}
+                wrapLines={true}
+                codeBlock
+              />
+            </div>
+
+            <h3 className='mt-5 font-bold text-xl'>Minifiying JS Files</h3>
+            <p className='mt-3'>You need to provide <strong>data-file-type</strong> "js" attribute inside the element</p>
+
+            <div className='mt-4'>
+              <CopyBlock
+                language={'html'}
+                text={`<file-minify data-file-source="your_js_file.js" data-file-type="js" />
+<script src="http://localhost:5000/main.js"></script>`}
+                showLineNumbers={true}
+                theme={dracula}
+                wrapLines={true}
+                codeBlock
+              />
+            </div>
+
           </div>
         </div>
-
       </div>
-
-
-
-
-
-
-
-      <div className="container mx-auto p-4">
-
-
-        <div className="demo">
-          <CopyBlock
-            language={'html'}
-            text={`<file-minify data-file-source="your_css_file.css" data-file-type="css" />
-<script src="http://localhost:5000/main.js"></script>`}
-            showLineNumbers={true}
-            theme={dracula}
-            wrapLines={true}
-            codeBlock
-          />
-
-        </div>
-      </div>
-
-
-
     </div>
   )
 }

@@ -59,7 +59,11 @@ const FileMinifier = () => {
               To minify your CSS file using '{'<file-minify>'}', follow these simple steps:
               <br />
               <br />
-              Step 1: Include the '{'<file-minify>'}' Tag <br />
+              
+              <p className='text-black font-semibold '>
+              Step 1: Include the '{'<file-minify>'}' Tag <br /> <br /> 
+              </p>
+              Replace ' "your_js_file.js" ' with the path to your JavaScript file that you want to minify. <br />
               Place the '{'<file-minify>'}' tag within the '{'<head>'}' section of your HTML document, like this:
               <div className="container mx-auto p-4">
                 <div className="demo">
@@ -79,7 +83,11 @@ const FileMinifier = () => {
                 </div>
               </div>
               <br />
-              Step 2: Specify the CSS File <br /> In the 'data-file-source' attribute, specify the path to your CSS file that you want to minify. For example:
+              <p className='text-black font-semibold '>
+              Step 2: Specify the CSS File
+              </p>
+              <p className='mt-3'>You need to provide <strong>data-file-type</strong> "css" attribute inside the element</p>
+              In the 'data-file-source' attribute, specify the path to your CSS file that you want to minify. For example:
               <div className="container mx-auto p-4">
                 <div className="demo">
                   <CopyBlock
@@ -94,9 +102,11 @@ const FileMinifier = () => {
                 </div>
               </div>
               Replace "your_css_file.css" with the relative or absolute path to your CSS file.
-              <br />
-              <br />
-              Step 3: Save and Refresh <br />Save your HTML file, and then refresh your web page. The {'<file-minify>'} tag will automatically minify your specified CSS file during page load.
+              <br /><br />
+              <p className='text-black font-semibold '>
+              Step 3: Save and Refresh 
+              </p><br />
+              Save your HTML file, and then refresh your web page. The {'<file-minify>'} tag will automatically minify your specified CSS file during page load.
               <br />
               <br />
               <p className='text-black font-semibold'>
@@ -139,6 +149,7 @@ const FileMinifier = () => {
               Using '{'<file-minify>'}' tag is a straightforward way to minify your CSS files directly within your HTML document, helping to optimize your website's performance without the need for external tools or plugins.
               <br />
               <br />
+              <br />
 
 
               {/* js minifier  */}
@@ -156,7 +167,11 @@ const FileMinifier = () => {
               To minify your JavaScript file, follow these simple steps:
               <br />
               <br />
-              Step 1: Include the '{'<file-minify>'}' Tag <br />
+              
+              <p className='text-black font-semibold '>
+              Step 1: Include the '{'<file-minify>'}' Tag 
+              </p><br />
+              You need to provide 'data-file-type' "css" attribute inside the element
               Place the '{'<file-minify>'}' tag within the '{'<head>'}' section of your HTML document, like this:
               <div className="container mx-auto p-4">
                 <div className="demo">
@@ -176,10 +191,16 @@ const FileMinifier = () => {
                 </div>
               </div>
               <br />
-              Step 2:Step 2: Specify Your JavaScript File <br /> Replace ' "your_js_file.js" ' with the path to your JavaScript file that you want to minify.
+              <p className='text-black font-semibold '>
+              Step 2: Specify Your JavaScript File 
+              </p><br />Replace ' "your_js_file.js" ' with the path to your JavaScript file that you want to minify.
+              <p className='mt-3'>You need to provide <strong>data-file-type</strong> "js" attribute inside the element</p>
               <br />
               <br />
-              Step 3: Enjoy Minified JavaScript <br /> That's it! Your JavaScript file will now be minified automatically when the page loads, thanks to the '{'<file-minify>'}' tag.
+              <p className='text-black font-semibold '>
+              Step 3: Enjoy Minified JavaScript
+              </p><br />
+              That's it! Your JavaScript file will now be minified automatically when the page loads, thanks to the '{'<file-minify>'}' tag.
               <br />
               <br />
               <p className='text-black font-semibold text-2xl'>
@@ -223,40 +244,7 @@ const FileMinifier = () => {
               </p>
               <br />
               Using the '{'<file-minify>'}' tag, you can easily optimize your JavaScript files for better performance without the need for external tools or libraries. Start minifying your JavaScript files today and see the difference it makes in your web applications!
-
-
             </p>
-
-            <h3 className='mt-5 font-bold text-xl'>Minifiying CSS Files</h3>
-            <p className='mt-3'>You need to provide <strong>data-file-type</strong> "css" attribute inside the element</p>
-
-            <div className='mt-4'>
-              <CopyBlock
-                language={'html'}
-                text={`<file-minify data-file-source="your_css_file.css" data-file-type="css" />
-<script src="http://localhost:5000/main.js"></script>`}
-                showLineNumbers={true}
-                theme={dracula}
-                wrapLines={true}
-                codeBlock
-              />
-            </div>
-
-            <h3 className='mt-5 font-bold text-xl'>Minifiying JS Files</h3>
-            <p className='mt-3'>You need to provide <strong>data-file-type</strong> "js" attribute inside the element</p>
-
-            <div className='mt-4'>
-              <CopyBlock
-                language={'html'}
-                text={`<file-minify data-file-source="your_js_file.js" data-file-type="js" />
-<script src="http://localhost:5000/main.js"></script>`}
-                showLineNumbers={true}
-                theme={dracula}
-                wrapLines={true}
-                codeBlock
-              />
-            </div>
-
           </div>
         </div>
       </div>

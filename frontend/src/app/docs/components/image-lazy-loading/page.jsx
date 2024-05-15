@@ -14,7 +14,7 @@ const ImageLazyLoading = () => {
               <br />
             </h1>
             <p className="mb-6 text-gray-500 sm:text-lg md:mb-8">
-              <p className='text-black font-semibold'>
+              <p className='text-black font-semibold text-2xl'>
                 What is image lazy loading?
               </p>
               <br />
@@ -22,36 +22,33 @@ const ImageLazyLoading = () => {
 
               <br />
               <br />
-              <p className='text-black font-semibold'>
+              <p className='text-black font-semibold text-2xl'>
                 Benefits of image lazy loading:
               </p>
               <br />
-              <ul>
-                <li>Faster Page Load Times: By deferring image loading, only essential content loads initially, leading to a quicker initial page load.</li>
-                <li>Improved User Experience: Users don't have to wait for all images to load before interacting with the page.</li>
-                <li>Reduced Bandwidth Usage: Only images that enter the viewport are downloaded, saving bandwidth and potentially lowering data costs for users.</li>
-              </ul>
-
+              <ul className="mb-6 list-inside list-disc text-gray-500 sm:text-lg md:mb-8 ">
+                <li><span className='underline text-black'>Faster Page Load Times: </span>By deferring image loading, only essential content loads initially, leading to a quicker initial page load.</li>
+                <li><span className='underline text-black'>Improved User Experience:</span>  Users don't have to wait for all images to load before interacting with the page.</li>
+                <li><span className='underline text-black'>Reduced Bandwidth Usage:</span>  Only images that enter the viewport are downloaded, saving bandwidth and potentially lowering data costs for users.</li>
+              </ul><br />
+              <p className='text-black font-semibold text-2xl'>
+                How to Use the '{'<image-lazy-loading>'}' Element
+              </p>
               <br />
+              <p className='text-black font-semibold '>
+                Step-by-Step Instructions
+              </p><br />
+              <p className='text-black font-semibold '>
+                1. Include the '{'<image-lazy-loading>'}' Element in Your HTML Code
+              </p>
               <br />
-              **How to use the image-lazy-loading Element:**
-
+              To use the '{'<image-lazy-loading>'}' element, you need to add it to your HTML code where you want the image to appear.
+              <br /><br />
+              <p className='text-black font-semibold '>
+                2. Set the 'data-image-source' Attribute
+              </p><br />
+              The data-image-source attribute is required and should be set to the path of the image you want to lazy load.
               <br />
-              <br />
-              1. Include the image-lazy-loading element in your HTML code.
-
-              <br />
-              2. Set the following attribute:
-              <ul>
-                <li>**data-image-source** (required): Path to the image file you want to lazy load.</li>
-              </ul>
-
-              <br />
-              <br />
-              **Example Usage:**
-
-              <br />
-
               <div className='mt-4'>
                 <CopyBlock
                   language={'html'}
@@ -61,7 +58,77 @@ const ImageLazyLoading = () => {
                   wrapLines={true}
                   codeBlock
                 />
-              </div>
+              </div><br />
+
+              <p className='text-black font-semibold text-2xl'>
+                Example
+              </p><br />
+              Below is an example of how to add the '{'<image-lazy-loading>'}' element to your HTML file: <br />
+              <div className='mt-4'>
+                <CopyBlock
+                  language={'html'}
+                  text={`<!DOCTYPE html>
+<html lang="en">
+<head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>Lazy Loading Image Example</title>
+</head>
+<body>
+          <h1>Welcome to the Image Lazy Loading Example</h1>
+                      
+          <!-- Lazy Loading Image Element -->
+          <image-lazy-loading data-image-source="path/to/your/image.jpg"></image-lazy-loading>
+                      
+</body>
+</html>`}
+                  showLineNumbers={true}
+                  theme={dracula}
+                  wrapLines={true}
+                  codeBlock
+                />
+              </div><br />
+
+
+              <p className='text-black font-semibold text-2xl'>
+                Advanced Usage
+              </p><br />
+              To lazy load multiple images, simply include multiple '{'<image-lazy-loading>'}' elements with different 'data-image-source' attributes. <br />
+              <div className='mt-4'>
+                <CopyBlock
+                  language={'html'}
+                  text={`<!DOCTYPE html>
+<html lang="en">
+<head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>Multiple Lazy Loading Images</title>
+</head>
+<body>
+          <h1>Multiple Lazy Loading Images Example</h1>
+                      
+          <!-- First Lazy Loading Image -->
+          <image-lazy-loading data-image-source="path/to/your/image1.jpg"></image-lazy-loading>
+                      
+          <!-- Second Lazy Loading Image -->
+          <image-lazy-loading data-image-source="path/to/your/image2.jpg"></image-lazy-loading>
+                      
+          <!-- Third Lazy Loading Image -->
+          <image-lazy-loading data-image-source="path/to/your/image3.jpg"></image-lazy-loading>
+                      
+</body>
+</html>`}
+                  showLineNumbers={true}
+                  theme={dracula}
+                  wrapLines={true}
+                  codeBlock
+                />
+              </div><br />
+
+              <p className='text-black font-semibold text-2xl'>
+              Conclusion
+              </p><br />
+              By using the '{'<image-lazy-loading>'}' element, you can significantly improve the load time and performance of your web pages, providing a better user experience.
 
             </p>
           </div>

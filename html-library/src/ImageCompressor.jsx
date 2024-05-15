@@ -69,12 +69,42 @@ const ImageCompressor = ({ src, alt, style }) => {
                 // newImg.onload = () => {
                 //     compressedRef.current = newImg;
                 // };
-                imgRef.current.src = URL.createObjectURL(blob);
+                compressedRef.current.src = URL.createObjectURL(blob);
                 // remove the img ref
-                imgRef.current = null;
+                // imgRef.current = null;
+                imgRef.current.style.display = 'none';
             },
         );
     };
+
+    function convertCssToJsxStyle(cssString) {
+        // Split the CSS string by semicolons
+        const rules = cssString.split(';');
+
+        const styleObject = {};
+
+        for (const rule of rules) {
+            // Trim whitespace
+            const trimmedRule = rule.trim();
+
+            // Check for empty rule or missing colon
+            if (!trimmedRule || !trimmedRule.includes(':')) {
+                continue;
+            }
+
+            // Split the rule by colon
+            const [key, value] = trimmedRule.split(':');
+
+            // Convert key to camelCase
+            const camelCaseKey = key.replace(/-([a-z])/g, (match, group1) => group1.toUpperCase());
+
+            // Add key-value pair to style object
+            styleObject[camelCaseKey] = value.trim();
+        }
+        console.log(styleObject);
+
+        return styleObject;
+    }
 
     useEffect(() => {
         imgRef.current.onload =
@@ -87,8 +117,8 @@ const ImageCompressor = ({ src, alt, style }) => {
 
     return (
         <div>
-            <img ref={compressedRef} src="" alt="" />
-            <img ref={imgRef} src={src} alt={alt} />
+            {/* <img className='compressed' ref={compressedRef} src="" alt="" /> */}
+            <img className='some' ref={imgRef} src={src} alt={alt} style={convertCssToJsxStyle(style)} />
         </div>
     )
 }

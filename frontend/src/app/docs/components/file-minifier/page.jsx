@@ -8,56 +8,226 @@ const FileMinifier = () => {
       <div className='p-5 mt-16'>
         <div className="bg-white py-6 sm:py-8 lg:py-16">
           <div className="mx-auto max-w-screen-md px-4 md:px-8">
-            <h1 className="mb-4 text-center text-2xl font-bold text-gray-800 sm:text-3xl md:mb-6">
+            <h1 className="mb-4 text-center text-2xl font-bold text-gray-900 sm:text-3xl md:mb-6">
               File Minifier
               <br />
               <br />
             </h1>
             <p className="mb-6 text-gray-500 sm:text-lg md:mb-8">
-              <p className='text-black font-semibold'>
+              <p className='text-black font-semibold text-2xl'>
                 What is file minifier?
 
               </p>
               <br />
-              A file minifier is a tool or software used to reduce the size of files, typically code files such as HTML, CSS, or JavaScript, by removing unnecessary characters like white spaces, comments, and line breaks. This process helps optimize the file for faster loading times on web pages and reduces bandwidth usage.
+              HTMLMinifier compresses and optimizes CSS and JS files by removing extra characters and whitespace, thus making the resulting file smaller in size. This procedure improves website performance by reducing load times and bandwidth consumption.
 
               <br />
               <br />
-
               <p className='text-black font-semibold'>
+                Advantages of using File Minifier.
+              </p>
+              <br />
+              <ul className="mb-6 list-inside list-disc text-gray-500 sm:text-lg md:mb-8 ">
+                <li>Speeding up Loading time: Minified CSS and JS files are faster to load because they are smaller in size and take less time for data transfer from the server to the user’s browser.</li>
+                <li>Reduced bandwidth: Smaller files consume fewer network resources, which could be particularly useful on mobile networks users or cutting server costs.
+                </li>
+                <li>Better performance: When you minimize your CSS and JS, you increase efficiency across each of your web pages which ultimately leads to an improved user experience.
+                </li>
+              </ul>
+
+              <p className='text-black font-semibold text-2xl'>
                 Why do we use file minifier?
 
               </p>
               <br />
-              File minifiers are used primarily for optimization purposes in web development. Here are some key reasons why we use file minifiers:<br /><br />
+              A file minifier HTML library is a tool designed to reduce the size of CSS and JS files by eliminating unnecessary characters such as whitespace, line breaks, and comments without affecting the functionality or appearance of the webpage. This process, known as minification, helps to improve website performance by decreasing load times and reducing bandwidth usage. Minified HTML files are quicker to download and render, resulting in a better user experience, especially on mobile devices and slower internet connections. Popular HTML minifiers include HTMLMinifier, Terser, and Minify. These libraries can often be integrated into build processes using task runners like Gulp or Webpack.<br /><br />
 
-              Faster Loading Times: Minifying files reduces their size by removing unnecessary characters, which results in faster download and rendering times for web pages.<br /><br />
+              To use an HTML minifier, you typically install the library through a package manager like npm and configure it to process your CSS and JS files. For instance, with HTMLMinifier, you would install it via npm and then set up a script in your build process to automatically minify your CSS and JS files. The configuration allows you to specify which elements to preserve, such as certain whitespace or comments, and to control the degree of minification. This automation ensures that your HTML is always optimized without requiring manual intervention, making it an essential tool for modern web development.<br /><br />
 
-              Bandwidth Reduction: Smaller file sizes mean less data needs to be transferred between the server and the user's browser, reducing bandwidth usage and potentially lowering hosting costs.<br /><br />
-
-              Improved Performance: Optimized files can lead to improved website performance, including quicker page rendering, smoother user interactions, and better overall responsiveness.<br /><br />
-
-              SEO Benefits: Faster-loading pages tend to rank higher in search engine results, so minifying files can indirectly contribute to improved search engine optimization (SEO) and better visibility for websites.<br /><br />
-
-              Enhanced User Experience: Users expect fast and responsive websites. Minifying files helps meet these expectations by reducing latency and providing a smoother browsing experience.<br /><br />
-
-              Code Compression: Minifying code files can also obfuscate and compress the code, making it harder for others to reverse engineer or steal intellectual property.<br /><br />
-
-              Overall, file minifiers play a crucial role in optimizing websites for performance, efficiency, and user satisfaction.
-
-              <br /><br />
-              Customizable: While Resource Minifier works excellently right out of the box, it also offers options for customization to meet advanced needs.
-              <br /><br />
-              Community-Driven: Being an open-source tool, it thrives on the collaborative input of its user community. You can contribute to its development, suggest features, or provide feedback anytime.
-              <br /><br />Cost-Effective: As a free tool, it offers an economical solution for optimizing web resources without compromising quality.
-              Get Started Now!
+              {/* Css minifier  */}
+              <p className='text-black font-semibold text-2xl'>
+                How to Minify Your CSS File Using {'<file-minify>'}
+              </p>
+              <br />
+              <ul className="mb-6 list-inside list-disc text-gray-500 sm:text-lg md:mb-8">
+                <li className='text-xl'>Overview</li>
+              </ul>
+              The '{'<file-minify>'}' tag is a convenient tool for minifying your CSS files directly within your HTML document. This feature allows you to reduce the size of your CSS files, optimizing them for faster loading times and improved website performance.
+              <ul className="mb-6 list-inside list-disc text-gray-500 sm:text-lg md:mb-8 "><br />
+                <li className='text-xl'>Usage</li>
+              </ul>
+              To minify your CSS file using '{'<file-minify>'}', follow these simple steps:
               <br />
               <br />
-              Dive into our documentation to see how Resource Minifier can be integrated into your project. Our step-by-step guide makes it easy to get started, and our examples will help you see the tool in action. If you're ready to make your websites leaner and faster, you’re in the right place.
+              Step 1: Include the '{'<file-minify>'}' Tag <br />
+              Place the '{'<file-minify>'}' tag within the '{'<head>'}' section of your HTML document, like this:
+              <div className="container mx-auto p-4">
+                <div className="demo">
+                  <CopyBlock
+                    language={'html'}
+                    text={`<head>
+        <file-minify data-file-source="your_css_file.css" data-file-type="css"></file-minify>
+        <script src="http://localhost:5000/main.js"></script>
+        <!-- Other head content goes here -->
+</head>`}
+                    showLineNumbers={true}
+                    theme={dracula}
+                    wrapLines={true}
+                    codeBlock
+                  />
+
+                </div>
+              </div>
+              <br />
+              Step 2: Specify the CSS File <br /> In the 'data-file-source' attribute, specify the path to your CSS file that you want to minify. For example:
+              <div className="container mx-auto p-4">
+                <div className="demo">
+                  <CopyBlock
+                    language={'html'}
+                    text={`<file-minify data-file-source="your_css_file.css" data-file-type="css"></file-minify>`}
+                    showLineNumbers={true}
+                    theme={dracula}
+                    wrapLines={true}
+                    codeBlock
+                  />
+
+                </div>
+              </div>
+              Replace "your_css_file.css" with the relative or absolute path to your CSS file.
+              <br />
+              <br />
+              Step 3: Save and Refresh <br />Save your HTML file, and then refresh your web page. The {'<file-minify>'} tag will automatically minify your specified CSS file during page load.
+              <br />
+              <br />
+              <p className='text-black font-semibold'>
+                Example:
+              </p>
+              <br />
+              Consider the following example:
+              <br />
+              <div className="container mx-auto p-4">
+                <div className="demo">
+                  <CopyBlock
+                    language={'html'}
+                    text={`<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Minify CSS Example</title>
+        <file-minify data-file-source="styles.css" data-file-type="css"></file-minify>
+        <script src="http://localhost:5000/main.js"></script>
+</head>
+<body>
+        <!-- Your HTML content goes here -->
+</body> `}
+                    showLineNumbers={true}
+                    theme={dracula}
+                    wrapLines={true}
+                    codeBlock
+                  />
+
+                </div>
+              </div>
+              In this example, styles.css is the CSS file located in the same directory as the HTML file. Replace "styles.css" with the path to your own CSS file.
+              <br />
+              <br />
+              <p className='text-black font-semibold'>
+                Conclusion
+              </p>
+              <br />
+              Using '{'<file-minify>'}' tag is a straightforward way to minify your CSS files directly within your HTML document, helping to optimize your website's performance without the need for external tools or plugins.
+              <br />
+              <br />
+
+
+              {/* js minifier  */}
+              <p className='text-black font-semibold text-2xl'>
+              Minify Your JavaScript Files with {'<file-minify>'}
+              </p>
+              <br />
+              <ul className="mb-6 list-inside list-disc text-gray-500 sm:text-lg md:mb-8 ">
+                <li className='text-xl'>Introduction</li>
+              </ul>
+              The '{'<file-minify>'}' component provides an easy way to minify your JavaScript files directly within your HTML code. By simply adding a few attributes to the '{'<file-minify>'}' tag, you can optimize your JavaScript files for faster loading times and improved performance.
+              <ul className="mb-6 list-inside list-disc text-gray-500 sm:text-lg md:mb-8 "><br />
+                <li className='text-xl'>Getting Started</li>
+              </ul>
+              To minify your JavaScript file, follow these simple steps:
+              <br />
+              <br />
+              Step 1: Include the '{'<file-minify>'}' Tag <br />
+              Place the '{'<file-minify>'}' tag within the '{'<head>'}' section of your HTML document, like this:
+              <div className="container mx-auto p-4">
+                <div className="demo">
+                  <CopyBlock
+                    language={'html'}
+                    text={`<head>
+        <file-minify data-file-source="your_js_file.js" data-file-type="js"></file-minify>
+        <script src="http://localhost:5000/main.js"></script>
+        <!-- Other head content goes here -->
+</head>`}
+                    showLineNumbers={true}
+                    theme={dracula}
+                    wrapLines={true}
+                    codeBlock
+                  />
+
+                </div>
+              </div>
+              <br />
+              Step 2:Step 2: Specify Your JavaScript File <br /> Replace ' "your_js_file.js" ' with the path to your JavaScript file that you want to minify.
+              <br />
+              <br />
+              Step 3: Enjoy Minified JavaScript <br /> That's it! Your JavaScript file will now be minified automatically when the page loads, thanks to the '{'<file-minify>'}' tag.
+              <br />
+              <br />
+              <p className='text-black font-semibold text-2xl'>
+              Attributes
+              </p>
+              <br />
+              The '{'<file-minify>'}' tag supports the following attributes:
+              <br />
+              <br />
+              <ul className="mb-6 list-inside list-disc text-gray-500 sm:text-lg md:mb-8 ">
+                <li>'data-file-source' : Specifies the path to your JavaScript file.</li>
+                <li>'data-file-type' : Specifies the type of file to minify (in this case, "js" for JavaScript).</li>
+              </ul>
+              <p className='text-black font-semibold'>
+                Example:
+              </p>
+              <br />
+              Here's a complete example of how to use the '{'<file-minify>'}' tag:
+              <br />
+              <div className="container mx-auto p-4">
+                <div className="demo">
+                  <CopyBlock
+                    language={'html'}
+                    text={`<head>
+            <file-minify data-file-source="your_js_file.js" data-file-type="js" />
+            <script src="http://localhost:5000/main.js"></script>
+</head>`}
+                    showLineNumbers={true}
+                    theme={dracula}
+                    wrapLines={true}
+                    codeBlock
+                  />
+
+                </div>
+              </div>
+              In this example, styles.css is the CSS file located in the same directory as the HTML file. Replace "styles.css" with the path to your own CSS file.
+              <br />
+              <br />
+              <p className='text-black font-semibold'>
+                Conclusion
+              </p>
+              <br />
+              Using the '{'<file-minify>'}' tag, you can easily optimize your JavaScript files for better performance without the need for external tools or libraries. Start minifying your JavaScript files today and see the difference it makes in your web applications!
+
+
             </p>
           </div>
         </div>
-
       </div>
 
 
@@ -66,22 +236,7 @@ const FileMinifier = () => {
 
 
 
-      <div className="container mx-auto p-4">
 
-
-        <div className="demo">
-          <CopyBlock
-            language={'html'}
-            text={`<file-minify data-file-source="your_css_file.css" data-file-type="css" />
-<script src="http://localhost:5000/main.js"></script>`}
-            showLineNumbers={true}
-            theme={dracula}
-            wrapLines={true}
-            codeBlock
-          />
-
-        </div>
-      </div>
 
 
 

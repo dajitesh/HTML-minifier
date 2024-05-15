@@ -9,7 +9,7 @@ const About = () => {
       <div className="bg-white py-6 sm:py-8 lg:py-12  mt-16">
         <div className="mx-auto max-w-screen-md px-4 md:px-8">
           <h1 className="mb-4 text-center text-2xl font-bold text-gray-900 sm:text-3xl md:mb-6">
-            About
+          nmm;'l;lkjnp;'
           </h1>
           <p className="mb-6 text-gray-500 sm:text-lg md:mb-8 ">
             Welcome to Resource Minifier – your ultimate solution for web optimization. We are dedicated to enhancing your website’s performance by providing a comprehensive HTML library that specializes in compressing images and videos while implementing lazy loading techniques. Our mission is to ensure your website runs smoothly, efficiently, and with optimal speed, offering a seamless experience to your visitors.

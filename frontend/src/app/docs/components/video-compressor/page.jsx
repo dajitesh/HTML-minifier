@@ -63,7 +63,7 @@ const VideoCompression = () => {
               <div className='mt-4'>
                 <CopyBlock
                   language={'html'}
-                  text={<video-compress data-video-source="path/to/your/video.mp4" data-quality="80"></video-compress>}
+                  text={`<video-minified src="./large_img2.jpg"/>`}
                   showLineNumbers={true}
                   theme={dracula}
                   wrapLines={true}

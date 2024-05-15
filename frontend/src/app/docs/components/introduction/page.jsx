@@ -7,17 +7,12 @@ const GettingStarted = () => {
       <div className="bg-white py-6 sm:py-8 lg:py-16">
         <div className="mx-auto max-w-screen-md px-4 md:px-8">
           <h1 className="mb-4 text-center text-2xl font-bold text-gray-800 sm:text-3xl md:mb-6">
-            Introduction
+          Welcome to Resource Minifier HTML Library
             <br />
             <br />
           </h1>
           <p className="mb-6 text-gray-500 sm:text-lg md:mb-8">
-            Welcome to Resource Minifier – Optimize Your HTML Effortlessly.
-
-            <br />
-            <br />
-            Hello and welcome to the official website of Resource Minifier, your go-to open-source HTML library designed to simplify and streamline your web development process. Our mission is to provide developers like you with a powerful, easy-to-use tool that can optimize HTML resources with just a few clicks, ensuring that your websites load faster and perform better.
-
+          Welcome to the <strong>Resource Minifier HTM`L Library!</strong> Our library is designed to help you optimize your web resources, making your web pages load faster and perform better. Whether you're a developer looking to speed up your website or a beginner trying to understand the basics of resource optimization, our library offers everything you need in an easy-to-use package.
             <br />
             <br />
             <p className='text-black font-semibold'>

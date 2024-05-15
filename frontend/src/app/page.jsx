@@ -148,7 +148,7 @@ const Home = () => {
           </h2>
           <div className="flex items-start justify-between gap-8 sm:items-center mb-6">
             <p className="max-w-screen-sm text-sm text-gray-500 lg:text-base">
-            Explore our gallery showcasing the power of Resource Minifier. See how streamlined HTML can boost performance and enhance web efficiency.
+              Explore our gallery showcasing the power of Resource Minifier. See how streamlined HTML can boost performance and enhance web efficiency.
             </p>
             <a
               href="/about"
@@ -159,8 +159,8 @@ const Home = () => {
           </div>
           <div className="mb-4 grid grid-cols-2 gap-4 sm:grid-cols-3 md:mb-8 md:grid-cols-4 md:gap-6 xl:gap-8">
             {/* image - start */}
-            <a
-              href="#"
+            <Link
+              href="/docs/components/file-minifier"
               className="group relative flex h-48 items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg md:h-80"
             >
               <img
@@ -171,13 +171,13 @@ const Home = () => {
               />
               <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-gray-800 via-transparent to-transparent opacity-50" />
               <span className="relative mb-3 ml-4 inline-block text-sm text-white md:ml-5 md:text-lg">
-                VR
+                File Minifier
               </span>
-            </a>
+            </Link>
             {/* image - end */}
             {/* image - start */}
-            <a
-              href="#"
+            <Link
+              href="/docs/components/image-compressor"
               className="group relative flex h-48 items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg md:h-80"
             >
               <img
@@ -188,13 +188,13 @@ const Home = () => {
               />
               <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-gray-800 via-transparent to-transparent opacity-50" />
               <span className="relative mb-3 ml-4 inline-block text-sm text-white md:ml-5 md:text-lg">
-                Tech
+                Image Compressor
               </span>
-            </a>
+            </Link>
             {/* image - end */}
             {/* image - start */}
             <a
-              href="#"
+              href="/docs/components/video-compressor"
               className="group relative flex h-48 items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg md:h-80"
             >
               <img
@@ -205,13 +205,13 @@ const Home = () => {
               />
               <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-gray-800 via-transparent to-transparent opacity-50" />
               <span className="relative mb-3 ml-4 inline-block text-sm text-white md:ml-5 md:text-lg">
-                Dev
+                Video Compressor
               </span>
             </a>
             {/* image - end */}
             {/* image - start */}
             <a
-              href="#"
+              href="/docs/components/image-lazy-loading"
               className="group relative flex h-48 items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg md:h-80"
             >
               <img
@@ -222,7 +222,7 @@ const Home = () => {
               />
               <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-gray-800 via-transparent to-transparent opacity-50" />
               <span className="relative mb-3 ml-4 inline-block text-sm text-white md:ml-5 md:text-lg">
-                Retro
+                Image Lazy Loading
               </span>
             </a>
             {/* image - end */}
@@ -260,7 +260,7 @@ const Home = () => {
               </div>
             </div>
             <div className="flex flex-col justify-center w-full px-8 mx-6 my-12 text-center rounded-md md:w-96 lg:w-80 xl:w-64 dark:bg-gray-800 dark:text-gray-100">
-              <img alt="" className="self-center flex-shrink-0 w-36 h-36 -mt-12 bg-center bg-cover rounded-full dark:bg-gray-500" src="https://source.unsplash.com/100x100/?portrait?1" />
+              <img alt="" className="self-center flex-shrink-0 w-36 h-36 -mt-12 bg-center bg-cover rounded-full dark:bg-gray-500" src="img/ajitesh.jpg" />
               <div className="flex-1 my-4">
                 <p className="text-xl font-semibold leading-snug">Ajitesh Kumar Dwivedi</p>
                 <p>Backend Developer</p>
@@ -366,20 +366,20 @@ const Home = () => {
             <div className="space-y-3">
               <ul className="space-y-1">
                 <li>
-                  <a rel="noopener noreferrer" href="#">Documentation</a>
+                  <Link rel="noopener noreferrer" href="/docs/components/introduction">Documentation</Link>
                 </li>
                 <li>
-                  <a rel="noopener noreferrer" href="#">About</a>
+                  <Link rel="noopener noreferrer" href="/about">About</Link>
                 </li>
               </ul>
             </div>
             <div className="space-y-3">
               <ul className="space-y-1">
                 <li>
-                  <a rel="noopener noreferrer" href="#">Contact</a>
+                  <Link rel="noopener noreferrer" href="/contact">Contact</Link>
                 </li>
                 <li>
-                  <a rel="noopener noreferrer" href="#">Feedback</a>
+                  <Link rel="noopener noreferrer" href="/feedback">Feedback</Link>
                 </li>
               </ul>
             </div>

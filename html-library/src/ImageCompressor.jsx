@@ -45,7 +45,7 @@ function readableBytes(bytes) {
 
 
 const ImageCompressor = ({ src, alt, style }) => {
-
+    // console.log(src);
     const imgRef = useRef(null);
     const imgLoaded = useRef(false);
     const compressedRef = useRef(null);
@@ -61,7 +61,7 @@ const ImageCompressor = ({ src, alt, style }) => {
             (blob) => {
                 // Handle the compressed image.
                 const displayTag = document.createElement('h1');
-                displayTag.innerText = `Original Image - {readableBytes(file.size)} :::::: Compressed Image - ${readableBytes(blob.size)}`;
+                displayTag.innerText = `Compressed Image - ${readableBytes(blob.size)}`;
                 console.log(displayTag.innerText);
                 // document.getElementById('container').append(displayTag);
 
@@ -73,11 +73,13 @@ const ImageCompressor = ({ src, alt, style }) => {
                 // remove the img ref
                 // imgRef.current = null;
                 imgRef.current.style.display = 'none';
+                imgRef.current = null; 
             },
         );
     };
 
     function convertCssToJsxStyle(cssString) {
+        if(!cssString) return {};
         // Split the CSS string by semicolons
         const rules = cssString.split(';');
 

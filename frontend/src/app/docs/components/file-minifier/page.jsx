@@ -64,16 +64,16 @@ const FileMinifier = () => {
               Step 1: Include the '{'<file-minify>'}' Tag <br /> <br /> 
               </p>
               Replace ' "your_js_file.js" ' with the path to your JavaScript file that you want to minify. <br />
-              Place the '{'<file-minify>'}' tag within the '{'<head>'}' section of your HTML document, like this:
+              Place the '{'<file-minify>'}' tag within the '{'<body>'}' section of your HTML document, like this:
               <div className="container mx-auto p-4">
                 <div className="demo">
                   <CopyBlock
                     language={'html'}
-                    text={`<head>
+                    text={`<body>
         <file-minify data-file-source="your_css_file.css" data-file-type="css"></file-minify>
         <script src="http://localhost:5000/main.js"></script>
         <!-- Other head content goes here -->
-</head>`}
+</body>`}
                     showLineNumbers={true}
                     theme={dracula}
                     wrapLines={true}
@@ -125,10 +125,10 @@ const FileMinifier = () => {
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Minify CSS Example</title>
-        <file-minify data-file-source="styles.css" data-file-type="css"></file-minify>
-        <script src="http://localhost:5000/main.js"></script>
 </head>
 <body>
+        <file-minify data-file-source="your_css_file.css" data-file-type="css"></file-minify>
+        <script src="http://localhost:5000/main.js"></script>
         <!-- Your HTML content goes here -->
 </body> `}
                     showLineNumbers={true}
@@ -172,16 +172,16 @@ const FileMinifier = () => {
               Step 1: Include the '{'<file-minify>'}' Tag 
               </p><br />
               You need to provide 'data-file-type' "css" attribute inside the element
-              Place the '{'<file-minify>'}' tag within the '{'<head>'}' section of your HTML document, like this:
+              Place the '{'<file-minify>'}' tag within the '{'<body>'}' section of your HTML document, like this:
               <div className="container mx-auto p-4">
                 <div className="demo">
                   <CopyBlock
                     language={'html'}
-                    text={`<head>
+                    text={`<body>
         <file-minify data-file-source="your_js_file.js" data-file-type="js"></file-minify>
         <script src="http://localhost:5000/main.js"></script>
-        <!-- Other head content goes here -->
-</head>`}
+        <!-- Other body content goes here -->
+</body>`}
                     showLineNumbers={true}
                     theme={dracula}
                     wrapLines={true}
@@ -224,10 +224,10 @@ const FileMinifier = () => {
                 <div className="demo">
                   <CopyBlock
                     language={'html'}
-                    text={`<head>
+                    text={`<body>
             <file-minify data-file-source="your_js_file.js" data-file-type="js" />
             <script src="http://localhost:5000/main.js"></script>
-</head>`}
+</body>`}
                     showLineNumbers={true}
                     theme={dracula}
                     wrapLines={true}

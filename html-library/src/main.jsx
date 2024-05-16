@@ -65,7 +65,7 @@ if (minifyElement) {
 }
 const videoCompressorElement = document.getElementsByTagName('video-minified');
 if (videoCompressorElement) {
-  console.log(videoCompressorElement);
+  // console.log(videoCompressorElement);
   for (let i = 0; i < videoCompressorElement.length; i++) {
     const source = videoCompressorElement[i].getAttribute('src');
     const style = videoCompressorElement[i].getAttribute('style');

@@ -32,6 +32,7 @@ app.use('/minify', minifyRouter);
 const port = 5000;
 
 app.use(express.static('./static/resources'));
+app.use(express.static('./static/uploads'));
 
 
 app.listen(port, () => { console.log('express server open') });

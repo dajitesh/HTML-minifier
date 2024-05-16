@@ -11,11 +11,11 @@ const fileStorage = multer.diskStorage({
         cb(null, './static/uploads');
     },
     filename: (req, file, cb) => {
-        cb(null, 'output.mp4');
+        cb(null, 'video.mp4');
     }
 });
 
-const uploader = multer({ storage: fileStorage, limits: { fileSize: 200000000 }});
+const uploader = multer({ storage: fileStorage, limits: { fileSize: 200000000 } });
 
 // endpoint to minify css from client
 router.post('/minify-css', (req, res) => {
@@ -51,9 +51,9 @@ router.post('/minify-js', async (req, res) => {
 });
 
 router.post('/minify-video', uploader.single('video'), (req, res) => {
-    res.status(200).json({ message: 'Video compressed' });
-    // compressVideo(() => {
-    // });
+    compressVideo(() => {
+        res.status(200).json({ message: 'Video compressed', videoUrl: 'http://localhost:5000/output.mp4'});
+    });
 })
 
 module.exports = router;

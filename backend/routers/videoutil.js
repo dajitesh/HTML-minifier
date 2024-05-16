@@ -10,7 +10,7 @@ const compressVideo = (cb) => {
   ffmpeg()
 
     // Input file
-    .input('video.mp4')
+    .input('./static/uploads/video.mp4')
 
     // Scale the video to 720 pixels in height. The -2 means FFmpeg should figure out the
     // exact size of the other dimension. In other words, to make the video 720 pixels wide

@@ -2,24 +2,26 @@ import React, { useEffect, useState } from 'react';
 
 const VideoCompressor = ({ source, style }) => {
     const [compressedVideoUrl, setCompressedVideoUrl] = useState('');
-    console.log(source);
+    // console.log(source);
 
     const compressVideo = async () => {
         try {
 
             const response = await fetch(source);
             const blob = await response.blob();
-            console.log(blob);
+            // console.log(blob);
             const formData = new FormData();
             formData.append('video', blob, 'video.mp4'); // append blob directly
-            console.log('uploading video...');
+            console.log('compressing video...');
             const res = await fetch('http://localhost:5000/minify/minify-video', {
                 method: 'POST',
                 body: formData,
             });
             console.log(res.status);
             const { videoUrl } = await res.json();
+            console.log(videoUrl);
             setCompressedVideoUrl(videoUrl);
+            console.log('compression finished');
         } catch (err) {
             console.log(err);
         }
@@ -61,9 +63,7 @@ const VideoCompressor = ({ source, style }) => {
 
     return (
         <div>
-            <video controls style={convertCssToJsxStyle(style)}>
-                <source src={compressedVideoUrl || source} type="video/mp4" />
-            </video>
+            <video controls style={convertCssToJsxStyle(style)} src={compressedVideoUrl}></video>
         </div>
     );
 };

@@ -1,35 +1,69 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
-const VideoCompressor = ({ source }) => {
+const VideoCompressor = ({ source, style }) => {
     const [compressedVideoUrl, setCompressedVideoUrl] = useState('');
+    console.log(source);
 
     const compressVideo = async () => {
         try {
-            const formData = new FormData();
-            formData.append('video', source);
 
-            const response = await fetch('/minify-video', {
+            const response = await fetch(source);
+            const blob = await response.blob();
+            console.log(blob);
+            const formData = new FormData();
+            formData.append('video', blob, 'video.mp4'); // append blob directly
+            console.log('uploading video...');
+            const res = await fetch('http://localhost:5000/minify/minify-video', {
                 method: 'POST',
                 body: formData,
             });
-
-            if (response.ok) {
-                const { videoUrl } = await response.json();
-                setCompressedVideoUrl(videoUrl);
-            } else {
-                console.error('Failed to compress video');
-            }
-        } catch (error) {
-            console.error('Error compressing video', error);
+            console.log(res.status);
+            const { videoUrl } = await res.json();
+            setCompressedVideoUrl(videoUrl);
+        } catch (err) {
+            console.log(err);
         }
     };
 
+    useEffect(() => {
+        compressVideo();
+    }, [])
+
+
+    function convertCssToJsxStyle(cssString) {
+        // Split the CSS string by semicolons
+        const rules = cssString.split(';');
+
+        const styleObject = {};
+
+        for (const rule of rules) {
+            // Trim whitespace
+            const trimmedRule = rule.trim();
+
+            // Check for empty rule or missing colon
+            if (!trimmedRule || !trimmedRule.includes(':')) {
+                continue;
+            }
+
+            // Split the rule by colon
+            const [key, value] = trimmedRule.split(':');
+
+            // Convert key to camelCase
+            const camelCaseKey = key.replace(/-([a-z])/g, (match, group1) => group1.toUpperCase());
+
+            // Add key-value pair to style object
+            styleObject[camelCaseKey] = value.trim();
+        }
+        console.log(styleObject);
+
+        return styleObject;
+    }
+
     return (
         <div>
-            <video controls>
+            <video controls style={convertCssToJsxStyle(style)}>
                 <source src={compressedVideoUrl || source} type="video/mp4" />
             </video>
-            <button onClick={compressVideo}>Compress Video</button>
         </div>
     );
 };

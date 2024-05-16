@@ -6,6 +6,7 @@ import ImageCompressor from './ImageCompressor.jsx';
 import VideoLazyLoader from './VideoLazyLoader.jsx';
 import FileMinifier from './FileMinifier.jsx';
 import ImageLazyLoader from './ImageLazyLoader.jsx';
+import VideoCompressor from './VideoCompressor.jsx';
 // import FileMinifier from './FileMinifier.jsx';
 
 // ReactDOM.createRoot(document.getElementById('root')).render(
@@ -14,20 +15,7 @@ import ImageLazyLoader from './ImageLazyLoader.jsx';
 //   </React.StrictMode>,
 // )
 
-
-// const minifyElement = document.getElementById('file-minify');
-// if (minifyElement) {
-//   const fileType = minifyElement.getAttribute('data-file-type');
-//   const fileSource = minifyElement.getAttribute('data-file-source');
-
-//   ReactDOM.createRoot(
-//     <FileMinifier fileSource={fileSource} fileType={fileType} />,
-//     minifyElement
-//   )
-// }
-
 const imgElement = document.getElementsByTagName('img-minified');
-console.log(imgElement);
 if (imgElement) {
   for (let i = 0; i < imgElement.length; i++) {
     const src = imgElement[i].getAttribute('src');
@@ -72,6 +60,17 @@ if (minifyElement) {
     const fileSource = minifyElement[i].getAttribute('data-file-source');
     ReactDOM.createRoot(minifyElement[i]).render(
       <FileMinifier fileSource={fileSource} fileType={fileType} />    
+    )
+  }
+}
+const videoCompressorElement = document.getElementsByTagName('video-minified');
+if (videoCompressorElement) {
+  console.log(videoCompressorElement);
+  for (let i = 0; i < videoCompressorElement.length; i++) {
+    const source = videoCompressorElement[i].getAttribute('src');
+    const style = videoCompressorElement[i].getAttribute('style');
+    ReactDOM.createRoot(videoCompressorElement[i]).render(
+      <VideoCompressor source={source} style={style} />
     )
   }
 }

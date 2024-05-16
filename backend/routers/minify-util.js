@@ -15,7 +15,7 @@ const fileStorage = multer.diskStorage({
     }
 });
 
-const uploader = multer({ storage: fileStorage });
+const uploader = multer({ storage: fileStorage, limits: { fileSize: 200000000 }});
 
 // endpoint to minify css from client
 router.post('/minify-css', (req, res) => {
@@ -51,9 +51,9 @@ router.post('/minify-js', async (req, res) => {
 });
 
 router.post('/minify-video', uploader.single('video'), (req, res) => {
-    compressVideo(() => {
-        res.status(200).json({ message: 'Video compressed' });
-    });
+    res.status(200).json({ message: 'Video compressed' });
+    // compressVideo(() => {
+    // });
 })
 
 module.exports = router;

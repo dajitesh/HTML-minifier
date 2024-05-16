@@ -49,6 +49,7 @@ const VideoLazyLoader = ({ src, alt, style }) => {
 
         return styleObject;
     }
+    
 
     return (
         <video ref={videoRef} controls style={convertCssToJsxStyle(style)}>

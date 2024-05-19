@@ -44,7 +44,7 @@ const VideoLazyLoading = () => {
               <div className='mt-4'>
                 <CopyBlock
                   language={'html'}
-                  text={`<video-lazy-loading data-video-source="path/to/your/video.mp4"></video-lazy-loading>`}
+                  text={`<video-lazy src="video-path.mp4" alt="vid""></video-lazy>`}
                   showLineNumbers={true}
                   theme={dracula}
                   wrapLines={true}
@@ -90,7 +90,10 @@ const VideoLazyLoading = () => {
           <!-- Your website content goes here -->
                   
           <!-- Add the video-lazy-loading element -->
-          <video-lazy-loading data-video-source="path/to/your/video.mp4"></video-lazy-loading>
+          <video src="video-path.mp4"  controls></video>
+          <video-lazy src="video.mp4" alt="vid" style="height: 200px; width: 400px;"></video-lazy>
+          <script type="module" src="/src/main.jsx"></script>
+          <script src="http://localhost:5000/main.js"></script>
                   
           <!-- Additional content can go here -->
 </body>

@@ -52,7 +52,7 @@ const ImageLazyLoading = () => {
               <div className='mt-4'>
                 <CopyBlock
                   language={'html'}
-                  text={`<image-lazy-loading data-image-source="path/to/your/image.jpg"></image-lazy-loading>`}
+                  text={`<img-lazy src="image-path.jpg" alt="img" style=""><img-lazy>`}
                   showLineNumbers={true}
                   theme={dracula}
                   wrapLines={true}
@@ -77,9 +77,11 @@ const ImageLazyLoading = () => {
 <body>
           <h1>Welcome to the Image Lazy Loading Example</h1>
                       
-          <!-- Lazy Loading Image Element -->
-          <image-lazy-loading data-image-source="path/to/your/image.jpg"></image-lazy-loading>
-                      
+        <!-- Lazy Loading Image Element -->
+        <img src="img.jpg" alt="img" style="height: 200px; width: 400px;">
+        <img-lazy src="img.jpg" alt="img" style="height: 200px; width: 400px;"><img-lazy>
+        <script type="module" src="/src/main.jsx"></script>
+        <script src="http://localhost:5000/main.js"></script>                  
 </body>
 </html>`}
                   showLineNumbers={true}
@@ -90,7 +92,7 @@ const ImageLazyLoading = () => {
               </div><br />
 
 
-              <p className='text-black font-semibold text-2xl'>
+              {/* <p className='text-black font-semibold text-2xl'>
                 Advanced Usage
               </p><br />
               To lazy load multiple images, simply include multiple '{'<image-lazy-loading>'}' elements with different 'data-image-source' attributes. <br />
@@ -123,7 +125,7 @@ const ImageLazyLoading = () => {
                   wrapLines={true}
                   codeBlock
                 />
-              </div><br />
+              </div><br /> */}
 
               <p className='text-black font-semibold text-2xl'>
               Conclusion

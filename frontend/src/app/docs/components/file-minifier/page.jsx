@@ -70,8 +70,9 @@ const FileMinifier = () => {
                   <CopyBlock
                     language={'html'}
                     text={`<body>
-        <file-minify data-file-source="your_css_file.css" data-file-type="css"></file-minify>
+        <file-minify data-file-source="styles.css" data-file-type="css"></file-minify>
         <script src="http://localhost:5000/main.js"></script>
+        <file-minify data-file-source="script.js" data-file-type="js"></file-minify>
         <!-- Other head content goes here -->
 </body>`}
                     showLineNumbers={true}
@@ -127,8 +128,9 @@ const FileMinifier = () => {
         <title>Minify CSS Example</title>
 </head>
 <body>
-        <file-minify data-file-source="your_css_file.css" data-file-type="css"></file-minify>
+        <file-minify data-file-source="styles.css" data-file-type="css"></file-minify>
         <script src="http://localhost:5000/main.js"></script>
+        <file-minify data-file-source="script.js" data-file-type="js"></file-minify>
         <!-- Your HTML content goes here -->
 </body> `}
                     showLineNumbers={true}
@@ -178,8 +180,9 @@ const FileMinifier = () => {
                   <CopyBlock
                     language={'html'}
                     text={`<body>
-        <file-minify data-file-source="your_js_file.js" data-file-type="js"></file-minify>
+        <file-minify data-file-source="script.js" data-file-type="js"></file-minify>
         <script src="http://localhost:5000/main.js"></script>
+        <file-minify data-file-source="script.js" data-file-type="js"></file-minify>
         <!-- Other body content goes here -->
 </body>`}
                     showLineNumbers={true}
@@ -225,8 +228,9 @@ const FileMinifier = () => {
                   <CopyBlock
                     language={'html'}
                     text={`<body>
-            <file-minify data-file-source="your_js_file.js" data-file-type="js" />
-            <script src="http://localhost:5000/main.js"></script>
+          <file-minify data-file-source="script.js" data-file-type="js"></file-minify>
+          <script src="http://localhost:5000/main.js"></script>
+          <file-minify data-file-source="script.js" data-file-type="js"></file-minify>
 </body>`}
                     showLineNumbers={true}
                     theme={dracula}

@@ -62,7 +62,7 @@ const ImageCompressor = () => {
               <div className='mt-4'>
                 <CopyBlock
                   language={'html'}
-                  text={`<img-minified src="img_path.png" alt="alt_name" />`}
+                  text={`<<img-minified src="img..jpg" style="height: 200px; width: 400px;" alt="alt_name" />`}
                   showLineNumbers={true}
                   theme={dracula}
                   wrapLines={true}
@@ -129,13 +129,10 @@ const ImageCompressor = () => {
               <div className='mt-4'>
                 <CopyBlock
                   language={'html'}
-                  text={`<img-minified 
-            src="compressed_image.png" 
-            alt="A descriptive alt text"
-            data-image-source="path/to/your/image.jpg"
-            data-output-format="webp"
-            data-quality="75"
-/>`}
+                  text={`<img src="img.jpg" style="height: 200px; width: 400px;" alt="aa"/>
+        <img-minified src="img..jpg" style="height: 200px; width: 400px;" alt="alt_name" />
+        <script type="module" src="/src/main.jsx"></script>
+        <script src="http://localhost:5000/main.js"></script>`}
                   showLineNumbers={true}
                   theme={dracula}
                   wrapLines={true}

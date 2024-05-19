@@ -107,16 +107,13 @@ const Home = () => {
             <h2 className="mt-6 text-lg  text-gray-600 hero-text">
               Start developing with an open source library bring your ideas to life in no time. Resource minifier is an open source HTML Library designed to streamline and optimize your web development process.
             </h2>
-
-
           </div>
         </div>
-
       </section>
-      <div className=" flex items-center justify-center gap-x-6">
+      <div className=" flex items-center justify-center gap-x-6 gettingbutton">
         <Link
-          className="isomorphic-link isomorphic-link--internal inline-flex items-center justify-center gap-2 rounded-xl bg-blue-600 px-4 py-3 text-sm font-semibold text-white shadow-sm transition-all duration-150 hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600 "
-          href="docs/getting-started"
+          className="isomorphic-link isomorphic-link--internal inline-flex items-center justify-center gap-2 rounded-xl bg-blue-600 px-4 py-3 text-sm font-semibold text-white shadow-sm transition-all duration-150 hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
+          href="docs/components/introduction"
         >
           Get Started
           <svg
@@ -164,7 +161,7 @@ const Home = () => {
               className="group relative flex h-48 items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg md:h-80"
             >
               <img
-                src="https://images.unsplash.com/photo-1593508512255-86ab42a8e620?auto=format&q=75&fit=crop&w=600"
+                src="img/file-minifier.jpg"
                 loading="lazy"
                 alt="Photo by Minh Pham"
                 className="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110"
@@ -181,7 +178,7 @@ const Home = () => {
               className="group relative flex h-48 items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg md:h-80"
             >
               <img
-                src="https://images.unsplash.com/photo-1542759564-7ccbb6ac450a?auto=format&q=75&fit=crop&w=600"
+                src="img/img-com.jpg"
                 loading="lazy"
                 alt="Photo by Magicle"
                 className="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110"
@@ -198,7 +195,7 @@ const Home = () => {
               className="group relative flex h-48 items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg md:h-80"
             >
               <img
-                src="https://images.unsplash.com/photo-1610465299996-30f240ac2b1c?auto=format&q=75&fit=crop&w=600"
+                src="img/video-com.jpg"
                 loading="lazy"
                 alt="Photo by Martin Sanchez"
                 className="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110"
@@ -215,7 +212,7 @@ const Home = () => {
               className="group relative flex h-48 items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg md:h-80"
             >
               <img
-                src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&q=75&fit=crop&w=600"
+                src="img/lazy-loading.jpg"
                 loading="lazy"
                 alt="Photo by Lorenzo Herrera"
                 className="absolute inset-0 h-full w-full object-cover object-center transition duration-200 group-hover:scale-110"

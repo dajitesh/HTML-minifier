@@ -130,9 +130,9 @@ const ImageCompressor = () => {
                 <CopyBlock
                   language={'html'}
                   text={`<img src="img.jpg" style="height: 200px; width: 400px;" alt="aa"/>
-        <img-minified src="img..jpg" style="height: 200px; width: 400px;" alt="alt_name" />
-        <script type="module" src="/src/main.jsx"></script>
-        <script src="http://localhost:5000/main.js"></script>`}
+<img-minified src="img..jpg" style="height: 200px; width: 400px;" alt="alt_name" />
+<script type="module" src="/src/main.jsx"></script>
+<script src="http://localhost:5000/main.js"></script>`}
                   showLineNumbers={true}
                   theme={dracula}
                   wrapLines={true}
@@ -192,14 +192,10 @@ const ImageCompressor = () => {
           <title>Image Compression Example</title>
 </head>
 <body>
-          <h1>Image Compression Example</h1>
-          <img-minified 
-                    src="compressed_image.webp" 
-                    alt="A descriptive alt text"
-                    data-image-source="images/large_photo.jpg"
-                    data-output-format="webp"
-                    data-quality="75"
-          />
+        <img src="img.jpg" alt="aa"/>
+        <img-minified src="img..jpg" alt="alt_name" />
+        <script type="module" src="/src/main.jsx"></script>
+        <script src="http://localhost:5000/main.js"></script>
 </body>`}
                   showLineNumbers={true}
                   theme={dracula}

@@ -25,27 +25,21 @@ console.log(src);
     }, [alt]);
 
     function convertCssToJsxStyle(cssString) {
-        // Split the CSS string by semicolons
         const rules = cssString.split(';');
       
         const styleObject = {};
       
         for (const rule of rules) {
-          // Trim whitespace
           const trimmedRule = rule.trim();
       
-          // Check for empty rule or missing colon
           if (!trimmedRule || !trimmedRule.includes(':')) {
             continue;
           }
       
-          // Split the rule by colon
           const [key, value] = trimmedRule.split(':');
       
-          // Convert key to camelCase
           const camelCaseKey = key.replace(/-([a-z])/g, (match, group1) => group1.toUpperCase());
       
-          // Add key-value pair to style object
           styleObject[camelCaseKey] = value.trim();
         }   
         console.log(styleObject);

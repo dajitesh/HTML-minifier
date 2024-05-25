@@ -17,10 +17,7 @@ const SignupSchema = Yup.object().shape({
   password: Yup
     .string()
     .required('Please Enter your password'),
-    // .matches(
-    //   /^(?=.[a-z])(?=.[A-Z])(?=.[0-9])(?=.[!@#\$%\^&\*])(?=.{8,})/,
-    //   "Must Contain 8 Characters, One Uppercase, One Lowercase, One Number and One Special Case Character"
-    // ),
+
   cPassword: Yup.string()
     .oneOf([Yup.ref('password'), null], 'Passwords must match')
 });
@@ -38,7 +35,6 @@ const Signup = () => {
     },
     onSubmit: (values) => {
       console.log(values);
-
 
       // sending request to backend
       fetch('http://localhost:5000/user/add', {
@@ -76,18 +72,11 @@ const Signup = () => {
             <div className="flex flex-col gap-4 p-4 md:p-8">
               <div>
                 <label
-                  htmlFor="name"
-                  className="mb-2 inline-block text-sm text-gray-800 sm:text-base"
-                >
+                  htmlFor="name" className="mb-2 inline-block text-sm text-gray-800 sm:text-base">
                   Name
                 </label>
                 <input
-                  name="name"
-                  type="text"
-                  value={signupForm.values.name}
-                  onChange={signupForm.handleChange}
-                  className="w-full rounded border bg-gray-50 px-3 py-2 text-gray-800 outline-none ring-indigo-300 transition duration-100 focus:ring"
-                />
+                  name="name" type="text" value={signupForm.values.name} onChange={signupForm.handleChange} className="w-full rounded border bg-gray-50 px-3 py-2 text-gray-800 outline-none ring-indigo-300 transition duration-100 focus:ring" />
                 {
                   signupForm.touched.name &&
                   <span className="text-red-500">{signupForm.errors.name}</span>
@@ -95,18 +84,11 @@ const Signup = () => {
               </div>
               <div>
                 <label
-                  htmlFor="email"
-                  className="mb-2 inline-block text-sm text-gray-800 sm:text-base"
-                >
+                  htmlFor="email" className="mb-2 inline-block text-sm text-gray-800 sm:text-base">
                   Email
                 </label>
                 <input
-                  name="email"
-                  type="email"
-                  value={signupForm.values.email}
-                  onChange={signupForm.handleChange}
-                  className="w-full rounded border bg-gray-50 px-3 py-2 text-gray-800 outline-none ring-indigo-300 transition duration-100 focus:ring"
-                />
+                  name="email" type="email" value={signupForm.values.email} onChange={signupForm.handleChange} className="w-full rounded border bg-gray-50 px-3 py-2 text-gray-800 outline-none ring-indigo-300 transition duration-100 focus:ring" />
                 {
                   signupForm.touched.email &&
                   <span className="text-red-500">{signupForm.errors.email}</span>
@@ -114,58 +96,31 @@ const Signup = () => {
               </div>
               <div>
                 <label
-                  htmlFor="password"
-                  className="mb-2 inline-block text-sm text-gray-800 sm:text-base"
-                >
+                  htmlFor="password" className="mb-2 inline-block text-sm text-gray-800 sm:text-base" >
                   Password
                 </label>
-                <input
-
-                  name="password"
-                  type="password"
-                  value={signupForm.values.password}
-                  onChange={signupForm.handleChange}
-                  className="w-full rounded border bg-gray-50 px-3 py-2 text-gray-800 outline-none ring-indigo-300 transition duration-100 focus:ring"
-                />
+                <input name="password" type="password" value={signupForm.values.password} onChange={signupForm.handleChange} className="w-full rounded border bg-gray-50 px-3 py-2 text-gray-800 outline-none ring-indigo-300 transition duration-100 focus:ring" />
                 {
                   signupForm.touched.password &&
                   <span className="text-red-500">{signupForm.errors.password}</span>
                 }
               </div>
               <div>
-                <label
-                  htmlFor="confirm-password"
-                  className="mb-2 inline-block text-sm text-gray-800 sm:text-base"
-                >
+                <label htmlFor="confirm-password" className="mb-2 inline-block text-sm text-gray-800 sm:text-base">
                   Confirm Password
                 </label>
-                <input
-                  type="password"
-                  name="cpassword"
-                  value={signupForm.values.cpassword}
-                  onChange={signupForm.handleChange}
-                  className="w-full rounded border bg-gray-50 px-3 py-2 text-gray-800 outline-none ring-indigo-300 transition duration-100 focus:ring"
-                />
+                <input type="password" name="cpassword" value={signupForm.values.cpassword} onChange={signupForm.handleChange} className="w-full rounded border bg-gray-50 px-3 py-2 text-gray-800 outline-none ring-indigo-300 transition duration-100 focus:ring" />
                 {
                   signupForm.touched.cpassword &&
                   <span className="text-red-500">{signupForm.errors.cpassword}</span>
                 }
                 <div className="hidden absolute inset-y-0 end-0 pointer-events-none pe-3">
-                  <svg
-                    className="size-5 text-red-500"
-                    width={16}
-                    height={16}
-                    fill="currentColor"
-                    viewBox="0 0 16 16"
-                    aria-hidden="true"
-                  >
+                  <svg className="size-5 text-red-500" width={16} height={16} fill="currentColor" viewBox="0 0 16 16" aria-hidden="true">
                     <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8 4a.905.905 0 0 0-.9.995l.35 3.507a.552.552 0 0 0 1.1 0l.35-3.507A.905.905 0 0 0 8 4zm.002 6a1 1 0 1 0 0 2 1 1 0 0 0 0-2z" />
                   </svg>
                 </div>
               </div>
-              <p
-                className="hidden text-xs text-red-600 mt-2"
-                id="confirm-password-error"
+              <p className="hidden text-xs text-red-600 mt-2" id="confirm-password-error"
               >
                 Password does not match the password
               </p>
@@ -176,9 +131,7 @@ const Signup = () => {
             <div className="flex items-center justify-center bg-gray-100 p-4">
               <p className="text-center text-sm text-gray-500">
                 Already Registered.{" "}
-                <Link
-                  href="/login"
-                  className="text-indigo-500 transition duration-100 hover:text-indigo-600 active:text-indigo-700"
+                <Link href="/login" className="text-indigo-500 transition duration-100 hover:text-indigo-600 active:text-indigo-700"
                 >
                   Login
                 </Link>
@@ -187,12 +140,7 @@ const Signup = () => {
           </form>
         </div>
       </div>
-
-
-
     </div>
-
-
   )
 }
 

@@ -121,7 +121,7 @@ const ImageCompressor = ({ src, alt, style }) => {
     return (
         <div>
             <img className='compressed' ref={compressedRef} src="" alt="" />
-            <img className='some' ref={imgRef} src={src} alt={alt}  />
+            <img className='some' ref={imgRef} src={src} alt={alt} style={convertCssToJsxStyle(style)} />
         </div>
     )
 }

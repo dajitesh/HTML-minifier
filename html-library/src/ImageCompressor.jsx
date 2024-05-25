@@ -62,7 +62,7 @@ const ImageCompressor = ({ src, alt, style }) => {
                 // Handle the compressed image.
                 const displayTag = document.createElement('h1');
                 displayTag.innerText = `Compressed Image - ${readableBytes(blob.size)}`;
-                // console.log(displayTag.innerText);
+                console.log(displayTag.innerText);
                 // document.getElementById('container').append(displayTag);
 
                 // const newImg = new Image();
@@ -109,7 +109,6 @@ const ImageCompressor = ({ src, alt, style }) => {
     }
 
     useEffect(() => {
-        console.log(imgRef.current);
         imgRef.current.onload =
             () => {
                 console.log("Image loaded");
@@ -120,8 +119,8 @@ const ImageCompressor = ({ src, alt, style }) => {
 
     return (
         <div>
-            <img className='compressed' ref={compressedRef} src="" alt="" />
-            <img className='some' ref={imgRef} src={src} alt={alt} style={convertCssToJsxStyle(style)} />
+            <img className='compressed' ref={compressedRef} src="" alt="" style={convertCssToJsxStyle(style)} />
+            <img className='some' ref={imgRef} src={src} alt={alt} />
         </div>
     )
 }
